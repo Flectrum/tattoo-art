@@ -4,9 +4,9 @@ import { Navbar } from "./navigation-bars/Navbar";
 
 export const Layout = () => {
   return (
-    <div className="block">
+    <div className="flex min-h-dvh flex-col">
       <Navbar />
-      <main className="grow">
+      <main className="flex-1">
         <Outlet />
       </main>
       <Footer />
