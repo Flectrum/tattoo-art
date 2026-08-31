@@ -4,10 +4,12 @@ import { Navbar } from "./navigation-bars/Navbar";
 
 export const Layout = () => {
   return (
-    <>
+    <div className="block">
       <Navbar />
-      <Outlet />
+      <main className="grow">
+        <Outlet />
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };

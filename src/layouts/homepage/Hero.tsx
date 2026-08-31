@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Hero = () => {
   return (
     <>
@@ -17,9 +19,12 @@ export const Hero = () => {
           <button className=" rounded-xl bg-red-500 hover:bg-red-400 p-5">
             Book a session
           </button>
-          <button className="border-1 border-black rounded-xl hover:border-red-500 hover:text-red-500 p-5">
+          <Link
+            to={"portfolio"}
+            className="border-1 border-black rounded-xl hover:border-red-500 hover:text-red-500 p-5"
+          >
             View portfolio
-          </button>
+          </Link>
         </div>
       </div>
     </>

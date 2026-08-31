@@ -62,7 +62,7 @@ export const Dropdown = () => {
                 type="button"
                 key={item.lang}
                 onClick={() => changeLanguage(item.lang)}
-                className={`block px-4 py-2 hover:bg-gray-500/20 ${
+                className={`block px-4 py-2 hover:bg-gray-500/20 w-full text-left ${
                   item.lang === lang
                     ? "text-red-500"
                     : "text-gray-400 hover:text-red-600"

@@ -8,7 +8,8 @@ export const navItems = [
   { label: "Home", href: "" },
   { label: "Portfolio", href: "portfolio" },
   { label: "About", href: "about" },
-  { label: "Book now", href: "book" },
+  {label: "Blog", href: "blog"},
+  { label: "Book now", href: "booking" },
   { label: "Contacts", href: "contacts" },
 ];
 

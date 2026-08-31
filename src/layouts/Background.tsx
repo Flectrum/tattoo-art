@@ -4,7 +4,7 @@ export const Background = () => {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-0 flex items-center justify-center overflow-hidden"
+      className="pointer-events-none fixed inset-0 z-0 flex items-center justify-center "
     >
       <img
         src={logo}
