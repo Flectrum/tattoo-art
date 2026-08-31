@@ -16,10 +16,6 @@ export const Portfolio = () => {
   const [open, setOpen] = useState(false);
   const [currentPic, setCurrentPic] = useState<string>("");
 
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   const handleOpen = () => {
     setOpen(true);
   };
