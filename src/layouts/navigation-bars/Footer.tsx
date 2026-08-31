@@ -5,7 +5,7 @@ import { navItems } from "./components/NavItems";
 
 export const Footer = () => {
   return (
-    <footer className="section-max-w section-padding  bottom-0 py-10 z-30 relative page-surface border-t-1 border-white/10">
+    <footer className="section-max-w section-padding py-10 z-30 relative page-surface border-t-1 border-white/10">
       <div>
         <div className="flex flex-col  text-center text-muted md:flex-row  md:items-stretch md:justify-between md:gap-4 lg:gap-5 container mx-auto">
           <div className="text-center md:text-left whitespace-nowrap">

@@ -4,9 +4,9 @@ import { HeroBackground } from "./HeroBackground";
 export const Homepage = () => {
   return (
     <>
-      <div className="relative overflow-hidden">
+      <div className="relative isolate min-h-[calc(100dvh-4rem)] overflow-hidden">
         <HeroBackground />
-        <div className="absolute w-full top-20 text-center mt-20 align-center justify-center ">
+        <div className="relative z-10 flex min-h-[calc(100dvh-4rem)] items-center justify-center text-center">
           <Hero />
         </div>
       </div>

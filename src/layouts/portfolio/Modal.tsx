@@ -26,7 +26,10 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
         onClick={onClose}
       />
 
-      <div className="relative w-full max-w-80 max-h-200 transform overflow-hidden rounded-2xl   align-middle shadow-xl transition-all duration-300 scale-100">
+      <div
+        className="relative w-full max-w-80 max-h-200 transform overflow-hidden
+       rounded-2xl align-middle shadow-xl transition-all duration-300 scale-100"
+      >
         <div className="flex items-center justify-between border-b border-gray-200">
           <button
             onClick={onClose}
