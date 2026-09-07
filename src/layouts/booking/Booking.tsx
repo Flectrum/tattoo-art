@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { FormData } from "./FormData";
+// import type { FormData } from "./FormData";
 import { Telegram } from "../../assets/svg/Telegram";
 import { Instagram } from "../../assets/svg/Instagram";
 import { Email } from "../../assets/svg/Email";
