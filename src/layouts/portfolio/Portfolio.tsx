@@ -1,25 +1,15 @@
 import { useState } from "react";
-import tattoo from "./../../assets/tattoo-2.avif";
-import tattoo1 from "./../../assets/tattoo-1.avif";
-import tattoo11 from "./../../assets/tattoo-11.avif";
+
 import Modal from "./Modal";
+import { pictures, type Picture } from "./Pictures";
 
-export const Portfolio = () => {
-  const pictures = [
-    { id: "1", pic: tattoo1 },
-    { id: "2", pic: tattoo11 },
-    { id: "3", pic: tattoo },
-    { id: "4", pic: tattoo11 },
-    { id: "5", pic: tattoo1 },
-    { id: "6", pic: tattoo },
-    { id: "7", pic: tattoo11 },
-  ];
-
+export const Portfolio = (props: { pictures: Picture[] }) => {
   const [open, setOpen] = useState(false);
-  const [index, setIndex] = useState<number>(-1);
+  const [currentIndex, setCurrrentIndex] = useState<number | null>(null);
 
-  const handleOpen = () => {
+  const handleOpen = (index: number) => {
     setOpen(true);
+    setCurrrentIndex(index);
   };
 
   return (
@@ -29,46 +19,27 @@ export const Portfolio = () => {
         <div className="text-muted">Selected works</div>
       </div>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
-        {pictures.map((picture, index) => (
+        {props.pictures?.map((pic, index) => (
           <div
-            key={picture.id}
+            key={pic.id}
             onClick={() => {
-              handleOpen();
-              setIndex(index);
+              handleOpen(index);
             }}
-            className="group relative aspect-square overflow-hidden rounded  focus-visible:outline-none"
+            className="flex items-center justify-center group relative aspect-square overflow-hidden rounded focus-visible:outline-none object-center"
           >
-            <img src={picture.pic} alt="tattoo"></img>
+            <img src={props.pictures[index].path} alt="tattoo"></img>
+
             <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/30"></div>
           </div>
         ))}
         {open && (
-          <Modal isOpen={open} onClose={() => setOpen(false)}>
-            <img id={pictures[index].id} src={pictures[index].pic} />
-            {index > 0 && (
-              <>
-                <button
-                  className="text-white"
-                  onClick={() => setIndex(index - 1)}
-                >
-                  PREV
-                </button>
-              </>
-            )}
-            {index < pictures.length - 1 && (
-              <>
-                <span className="text-white">
-                  {index + 1} of {pictures.length}
-                </span>
-                <button
-                  className="text-white"
-                  onClick={() => setIndex(index + 1)}
-                >
-                  NEXT
-                </button>
-              </>
-            )}
-          </Modal>
+          <Modal
+            isOpen={open}
+            onClose={() => setOpen(false)}
+            pictures={pictures}
+            setIndex={setCurrrentIndex}
+            index={currentIndex !== null ? currentIndex : 0}
+          ></Modal>
         )}
       </div>
     </div>

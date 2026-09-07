@@ -2,7 +2,7 @@ import background from "./../../assets/background.mp4";
 
 export const HeroBackground = () => {
   return (
-    <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute inset-0">
       <video
         src={background}
         autoPlay

@@ -2,10 +2,9 @@ import { useRef, useState } from "react";
 import { Dropdown } from "./Dropdown";
 import { useClickOutside } from "../../../common/useClickOutside";
 import { NavLink, useParams } from "react-router-dom";
+import type { NavItem } from "./NavItems";
 
-export const NavbarMobile = (props: {
-  navItems: { label: string; href: string }[];
-}) => {
+export const NavbarMobile = (props: { navItems: NavItem[] }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { lang } = useParams();
@@ -31,6 +30,7 @@ export const NavbarMobile = (props: {
             <ul className="items-center justify-between text-white">
               {props.navItems.map((item) => (
                 <NavLink
+                  key={item.label}
                   className={({ isActive }) =>
                     ` font-medium hover:!text-white ${
                       isActive ? "text-red-500" : "text-muted"
@@ -40,10 +40,7 @@ export const NavbarMobile = (props: {
                   end={item.href === ""}
                   onClick={() => setIsNavOpen(false)}
                 >
-                  <li
-                    key={item.label}
-                    className="section-max-w font-semibold hover:bg-gray-500/90 px-6 py-4"
-                  >
+                  <li className="section-max-w font-semibold hover:bg-gray-500/90 px-6 py-4">
                     {item.label}
                   </li>
                 </NavLink>
