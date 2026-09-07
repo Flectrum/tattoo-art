@@ -32,7 +32,7 @@ export const NavbarMobile = (props: { navItems: NavItem[] }) => {
                 <NavLink
                   key={item.label}
                   className={({ isActive }) =>
-                    ` font-medium hover:!text-white ${
+                    `font-medium hover:!text-white ${
                       isActive ? "text-red-500" : "text-muted"
                     }`
                   }
