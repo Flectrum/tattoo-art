@@ -1,5 +1,5 @@
 export type FormData = {
     name: string,
-    phoneNumber: number,
+    phoneNumber: string,
     connectionType: string;
 }

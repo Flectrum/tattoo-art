@@ -47,7 +47,7 @@ export const About = () => {
               {styles.map((text: string, index: number) => (
                 <div
                   key={index}
-                  className=" px-1 border-1 border-[#595858] rounded-full"
+                  className=" px-2 border-1 border-[#595858] rounded-full"
                 >
                   {text}
                 </div>

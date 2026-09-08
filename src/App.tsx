@@ -7,6 +7,7 @@ import { Layout } from "./layouts/Layout";
 import { About } from "./layouts/about/About";
 import { pictures } from "./layouts/portfolio/Pictures";
 import { Booking } from "./layouts/booking/Booking";
+import { Contacts } from "./layouts/contacts/Contacts";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="portfolio" element={<Portfolio pictures={pictures} />} />
           <Route path="about" element={<About />} />
           <Route path="booking" element={<Booking />} />
+          <Route path="contacts" element={<Contacts />} />
         </Route>
       </Routes>
     </>
