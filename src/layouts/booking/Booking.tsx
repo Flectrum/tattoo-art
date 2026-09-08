@@ -19,7 +19,7 @@ type FormErrors = Partial<Record<keyof FormData, string>>;
 
 export const Booking = () => {
   const [warnings, setWarnings] = useState<FormErrors>({});
-  const [formStep, setFormStep] = useState(1);
+  const [formStep] = useState(1);
   const [formData, setFormData] = useState<FormData>({
     name: "",
     phoneNumber: "",
