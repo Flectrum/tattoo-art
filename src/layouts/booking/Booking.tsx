@@ -17,6 +17,9 @@ interface FormData {
   phoneNumber: string;
   contactMethod: ContactMethod | null;
   contact: string;
+  idea: string;
+  style?: string;
+  date?: Date;
 }
 
 interface Errors {
@@ -24,6 +27,7 @@ interface Errors {
   phoneNumber?: string;
   contactMethod?: string;
   contact?: string;
+  idea?: string;
 }
 
 const contactMethods: ContactMethod[] = [
@@ -57,19 +61,33 @@ const contactMethods: ContactMethod[] = [
   },
 ];
 
+const styles = [
+  "Blackwork",
+  "Geometric",
+  "Fineline",
+  "Realism",
+  "Ornamental",
+  "Trash-polka",
+  "Watercolor",
+];
+
 export const Booking = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
+  const todayDate = Date.now.toString();
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
     phoneNumber: "",
     contactMethod: null,
     contact: "",
+    idea: "",
   });
 
   const [formErrors, setFormErrors] = useState<Errors>({});
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
 
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -217,7 +235,67 @@ export const Booking = () => {
               </div>
             </div>
           )}
-          {step === 2 && <>SECOND STEP</>}
+          {step === 2 && (
+            <div className="flex flex-col mt-10">
+              <div className="flex  font-bold text-2xl">Your Tattoo Idea</div>
+              <label className="mt-5">
+                Describe your idea
+                <span className="text-red-800">*</span>
+              </label>
+              <textarea
+                className=" mt-2 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80 "
+                name="idea"
+                value={formData.idea}
+                onChange={handleChange}
+                placeholder="What do you want to get tattooed? Describe the idea, size, placement..."
+              />
+              {formErrors.name && (
+                <p className="text-red-500 text-sm">{formErrors.idea}</p>
+              )}
+              <label className="mt-2">Preferred style</label>
+              <select className="border-1 border-gray rounded">
+                {styles.map((style, index) => (
+                  <option
+                    key={index}
+                    value={style}
+                    className="bg-black text-white"
+                  >
+                    {style}
+                  </option>
+                ))}
+              </select>
+
+              <label className="mt-2">Preferred date</label>
+              <ul className="flex gap-3 mt-3">
+                {contactMethods.map((item, index) => (
+                  <li key={index}>
+                    <button
+                      type="button"
+                      value={formData.contactMethod?.name}
+                      onClick={() => handleContactMethod(item)}
+                      name="connectionType.name"
+                      className={`relative flex items-center rounded-lg border-1  
+                ${formData.contactMethod?.name === item.name ? "text-red-500 border-red-500" : "text-[#737373] border-[#737373] hover:text-white"}`}
+                    >
+                      <div className="mx-3 my-2 flex items-center gap-2">
+                        <div className="w-5">{item.svg}</div>
+                        {item.name}
+                      </div>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <input
+                className=" mt-2 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
+                type="date"
+                required
+                onChange={handleChange}
+                name="date"
+                min={todayDate}
+              />
+              <p className="mt-1 text-muted">Optional — we'll confirm later</p>
+            </div>
+          )}
         </form>
       </div>
     </>
