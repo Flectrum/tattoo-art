@@ -144,7 +144,7 @@ export const Booking = () => {
             Contact me →
           </a>
         </div>
-        <form method="POST" className="flex flex-col mt-10">
+        <form method="POST" className="flex flex-col mt-1">
           {step === 1 && (
             <div className="flex flex-col mt-10">
               <div className="flex  font-bold text-2xl">Your Details</div>
@@ -227,7 +227,7 @@ export const Booking = () => {
               <div className="flex justify-end">
                 <button
                   type="button"
-                  className="mt-3 h-10 border-1 border-white bg-red-500 rounded-lg hover:bg-red-600"
+                  className="mt-8 h-10 border-1 border-white bg-red-500 rounded-lg hover:bg-red-600"
                   onClick={() => handleNext()}
                 >
                   <span className="mx-8 font-bold text-xl">Next </span>
