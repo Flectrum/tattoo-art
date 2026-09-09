@@ -133,7 +133,7 @@ export const Booking = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center text-white py-10">
+      <div className="flex flex-col justify-center items-center text-white px-3 py-10">
         <div className="text-white text-3xl font-bold">Book a Session</div>
         <div className="text-muted mt-3">
           Fill in the form and I'll contact you within 24 hours
@@ -144,7 +144,7 @@ export const Booking = () => {
             Contact me →
           </a>
         </div>
-        <form method="POST" className="flex flex-col mt-1">
+        <form method="POST" className="flex w-full max-w-xl flex-col mt-1">
           {step === 1 && (
             <div className="flex flex-col mt-10">
               <div className="flex  font-bold text-2xl">Your Details</div>
@@ -152,7 +152,7 @@ export const Booking = () => {
                 Name <span className="text-red-800">*</span>
               </label>
               <input
-                className=" mt-2 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80 "
+                className=" mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border border-gray-600/80 "
                 type="text"
                 name="name"
                 onChange={handleChange}
@@ -166,7 +166,7 @@ export const Booking = () => {
                 Phone number <span className="text-red-800">*</span>
               </label>
               <input
-                className=" mt-2 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
+                className=" mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
                 type="text"
                 name="phoneNumber"
                 onChange={handleChange}
@@ -180,7 +180,7 @@ export const Booking = () => {
                 Where would you like to discuss?{" "}
                 <span className="text-red-800">*</span>
               </label>
-              <ul className="flex gap-3 mt-3">
+              <ul className="flex flex-wrap gap-3 mt-3">
                 {contactMethods.map((item, index) => (
                   <li key={index}>
                     <button
@@ -188,7 +188,7 @@ export const Booking = () => {
                       value={formData.contactMethod?.name}
                       onClick={() => handleContactMethod(item)}
                       name="connectionType.name"
-                      className={`relative flex items-center rounded-lg border-1  
+                      className={`relative flex flex-wrap items-center rounded-lg border-1  
                 ${formData.contactMethod?.name === item.name ? "text-red-500 border-red-500" : "text-[#737373] border-[#737373] hover:text-white"}`}
                     >
                       <div className="mx-3 my-2 flex items-center gap-2">
@@ -209,7 +209,7 @@ export const Booking = () => {
                     <span className="text-red-800">*</span>
                   </label>
                   <input
-                    className=" mt-2 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
+                    className=" mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
                     type="text"
                     required
                     onChange={handleChange}
@@ -243,7 +243,7 @@ export const Booking = () => {
                 <span className="text-red-800">*</span>
               </label>
               <textarea
-                className=" mt-2 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80 "
+                className=" mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80 "
                 name="idea"
                 value={formData.idea}
                 onChange={handleChange}
@@ -286,7 +286,7 @@ export const Booking = () => {
                 ))}
               </ul>
               <input
-                className=" mt-2 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
+                className=" mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
                 type="date"
                 required
                 onChange={handleChange}
