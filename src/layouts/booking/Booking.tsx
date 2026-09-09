@@ -243,7 +243,7 @@ export const Booking = () => {
                 <span className="text-red-800">*</span>
               </label>
               <textarea
-                className=" mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80 "
+                className=" mt-2 w-full min-w-0 rounded-lg px-1 py-2 border-1 border-gray-600/80 "
                 name="idea"
                 value={formData.idea}
                 onChange={handleChange}
@@ -253,7 +253,7 @@ export const Booking = () => {
                 <p className="text-red-500 text-sm">{formErrors.idea}</p>
               )}
               <label className="mt-2">Preferred style</label>
-              <select className="border-1 border-gray rounded">
+              <select className="border-1 rounded mt-3 px-1">
                 {styles.map((style, index) => (
                   <option
                     key={index}
@@ -266,25 +266,6 @@ export const Booking = () => {
               </select>
 
               <label className="mt-2">Preferred date</label>
-              <ul className="flex gap-3 mt-3">
-                {contactMethods.map((item, index) => (
-                  <li key={index}>
-                    <button
-                      type="button"
-                      value={formData.contactMethod?.name}
-                      onClick={() => handleContactMethod(item)}
-                      name="connectionType.name"
-                      className={`relative flex items-center rounded-lg border-1  
-                ${formData.contactMethod?.name === item.name ? "text-red-500 border-red-500" : "text-[#737373] border-[#737373] hover:text-white"}`}
-                    >
-                      <div className="mx-3 my-2 flex items-center gap-2">
-                        <div className="w-5">{item.svg}</div>
-                        {item.name}
-                      </div>
-                    </button>
-                  </li>
-                ))}
-              </ul>
               <input
                 className=" mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
                 type="date"
