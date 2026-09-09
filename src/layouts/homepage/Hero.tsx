@@ -16,9 +16,12 @@ export const Hero = () => {
         </h2>
 
         <div className="flex align-center justify-center gap-3  text-white mt-10">
-          <button className=" rounded-xl bg-red-500 hover:bg-red-400 p-5">
+          <Link
+            to={"booking"}
+            className=" rounded-xl bg-red-500 hover:bg-red-400 p-5"
+          >
             Book a session
-          </button>
+          </Link>
           <Link
             to={"portfolio"}
             className="border-1 border-black rounded-xl hover:border-red-500 hover:text-red-500 p-5"

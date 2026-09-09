@@ -1,6 +1,9 @@
+import { Link, useParams } from "react-router-dom";
 import artist from "./../../assets/artist.avif";
 
 export const About = () => {
+  const { lang } = useParams();
+
   const styles: string[] = [
     "Blackwork",
     "Геометрия",
@@ -55,12 +58,14 @@ export const About = () => {
                 </div>
               ))}
             </div>
-            <button
-              className="text-white mt-10 border-2 border-red-800 p-4 rounded-xl"
-              type="button"
-            >
-              Book a Consultation
-            </button>
+            <div className="mt-10">
+              <Link
+                to={`/${lang}/booking`}
+                className="text-white mt-10 border-2 border-red-800 p-4 rounded-xl"
+              >
+                Book a Consultation
+              </Link>
+            </div>
           </div>
         </div>
       </div>
