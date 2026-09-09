@@ -13,9 +13,9 @@ export const About = () => {
   ];
   return (
     <>
-      <div className="relative px-40 px-5 md:px-0 md:container md:mx-auto">
-        <div className="md:flex justify-between align-center my-10 max-h-screen">
-          <div id="photo" className="w-full mr-50 object-contain">
+      <div className="relative px-5 md:px-0 container md:mx-auto">
+        <div className="relative block md:flex md:flex-row md:justify-between my-10 ">
+          <div className="w-full md:mr-50 object-contain">
             <img src={artist} className="rounded"></img>
           </div>
           <div className="right-part ">
@@ -42,12 +42,14 @@ export const About = () => {
                 <div className="text-muted">Работ сделано</div>
               </div>
             </div>
-            <div className="text-muted mt-5 uppercase text-semibold">Стили</div>
-            <div className="text-muted  flex gap-3 mt-2">
+            <div className="text-muted md:mt-5 uppercase text-semibold">
+              Стили
+            </div>
+            <div className="text-muted flex flex-wrap gap-1 gap-3 mt-2">
               {styles.map((text: string, index: number) => (
                 <div
                   key={index}
-                  className=" px-2 border-1 border-[#595858] rounded-full"
+                  className=" px-2 border-1 border-[#595858] rounded-lg flex justify-center items-center md:rounded-full"
                 >
                   {text}
                 </div>
