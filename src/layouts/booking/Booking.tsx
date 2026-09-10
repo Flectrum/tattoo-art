@@ -128,11 +128,21 @@ export const Booking = () => {
       errors.contact = "This field is required";
     }
 
+    if (step === 2) {
+      if (!formData.idea.trim()) {
+        errors.idea = "This field is required";
+      } else if (formData.idea.length < 10) {
+        errors.idea = "Description must be at least 10 characters";
+      }
+    }
+
     setFormErrors(errors);
 
     if (Object.keys(errors).length === 0) {
       setStep(step + 1);
     }
+
+    console.log(formData.style);
   };
 
   return (
@@ -204,7 +214,9 @@ export const Booking = () => {
                 ))}
               </ul>
               {formErrors.contactMethod && (
-                <p className="text-red-500 text-sm">This field is required</p>
+                <p className="text-red-500 text-sm">
+                  {formErrors.contactMethod}
+                </p>
               )}
               {formData.contactMethod && (
                 <>
@@ -222,9 +234,7 @@ export const Booking = () => {
                     placeholder={formData.contactMethod?.placeholder}
                   />
                   {formErrors.contact && (
-                    <p className="text-red-500 text-sm">
-                      This field is required
-                    </p>
+                    <p className="text-red-500 text-sm">{formErrors.contact}</p>
                   )}
                 </>
               )}
@@ -248,19 +258,20 @@ export const Booking = () => {
               </label>
               <textarea
                 className=" mt-2 w-full min-w-0 rounded-lg px-1 py-2 border-1 border-gray-600/80"
-rows={4}
+                rows={4}
                 name="idea"
                 value={formData.idea}
                 onChange={handleChange}
                 placeholder="What do you want to get tattooed? Describe the idea, size, placement..."
               />
-              {formErrors.name && (
+              {formErrors.idea && (
                 <p className="text-red-500 text-sm">{formErrors.idea}</p>
               )}
               <label className="mt-2">Preferred style</label>
               <select
                 defaultValue={"default"}
-                className="text-white border border-gray-600 rounded-lg px-3 py-2"
+                className="text-white border bg-black border-gray-600 rounded-lg px-3 py-2"
+                name="style"
                 onChange={handleChange}
               >
                 <option value={"default"} disabled hidden></option>
@@ -285,6 +296,64 @@ rows={4}
                 min={todayDate}
               />
               <p className="mt-1 text-muted">Optional — we'll confirm later</p>
+              <div className="flex justify-end">
+                <button
+                  type="button"
+                  className="mt-8 h-10 border-1 border-white bg-red-500 rounded-lg hover:bg-red-600"
+                  onClick={() => handleNext()}
+                >
+                  <span className="mx-8 font-bold text-xl">Next </span>
+                </button>
+              </div>
+            </div>
+          )}
+          {step === 3 && (
+            <div className="flex flex-col mt-10">
+              <div className="flex  font-bold text-2xl">
+                Review Your Request
+              </div>
+              <div className="relative border bg-[#141414] border-[#2a2a2a] rounded-lg mt-5">
+                <p className="border-b border-[#2a2a2a] px-4 py-3 font-medium uppercase tracking-wider text-muted">
+                  {" "}
+                  Your request
+                </p>
+                <dl className="divide-y divide-[#2a2a2a] ">
+                  <div className="flex gap-4 px-4 py-3">
+                    <dt className="w-28 text-muted">Name</dt>
+                    <dd className="flex-1 break-words text">{formData.name}</dd>
+                  </div>
+                  <div className="flex gap-4 px-4 py-3">
+                    <dt className="w-28 text-muted">Phone</dt>
+                    <dd className="flex-1 break-words text">
+                      {formData.phoneNumber}
+                    </dd>
+                  </div>
+                  <div className="flex gap-4 px-4 py-3">
+                    <dt className="w-28 text-muted">Discuss via</dt>
+                    <dd className="flex-1 break-words text">
+                      {formData.contactMethod?.name} — {formData.contact}
+                    </dd>
+                  </div>
+                  <div className="flex gap-4 px-4 py-3">
+                    <dt className="w-28 text-muted">Idea</dt>
+                    <dd className="flex-1 break-words text">{formData.idea}</dd>
+                  </div>
+                  <div className="flex gap-4 px-4 py-3">
+                    <dt className="w-28 text-muted">Style</dt>
+                    <dd className="flex-1 break-words text">
+                      {formData.style ? formData.style : "To be confirmed"}
+                    </dd>
+                  </div>
+                  <div className="flex gap-4 px-4 py-3">
+                    <dt className="w-28 text-muted">Date</dt>
+                    <dd className="flex-1 break-words text">
+                      {formData.date
+                        ? formData.date.toString()
+                        : "To be confirmed"}
+                    </dd>
+                  </div>
+                </dl>
+              </div>
             </div>
           )}
         </form>
