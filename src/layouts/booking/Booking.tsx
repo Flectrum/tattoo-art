@@ -73,12 +73,8 @@ const styles = [
 
 export const Booking = () => {
   const [step, setStep] = useState(2);
-  const todayDate =
-    new Date().getFullYear().toString() +
-    "-" +
-    (new Date().getMonth() + 1) +
-    "-" +
-    new Date().getDate().toString();
+
+  const todayDate = new Date().toISOString().split("T")[0];
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
