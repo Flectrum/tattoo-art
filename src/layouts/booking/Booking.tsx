@@ -73,7 +73,12 @@ const styles = [
 
 export const Booking = () => {
   const [step, setStep] = useState(2);
-  const todayDate = new Date().toString();
+  const todayDate =
+    new Date().getFullYear().toString() +
+    "-" +
+    (new Date().getMonth() + 1) +
+    "-" +
+    new Date().getDate().toString();
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -281,7 +286,7 @@ export const Booking = () => {
                 required
                 onChange={handleChange}
                 name="date"
-                min={"2026-09-10"}
+                min={todayDate}
               />
               <p className="mt-1 text-muted">Optional — we'll confirm later</p>
             </div>
