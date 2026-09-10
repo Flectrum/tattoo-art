@@ -45,7 +45,7 @@ export const About = () => {
                 <div className="text-muted">Работ сделано</div>
               </div>
             </div>
-            <div className="text-muted md:mt-5 uppercase text-semibold">
+            <div className="text-muted mt-5 uppercase text-semibold">
               Стили
             </div>
             <div className="text-muted flex flex-wrap gap-1 gap-3 mt-2">
