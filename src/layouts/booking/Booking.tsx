@@ -247,7 +247,8 @@ export const Booking = () => {
                 <span className="text-red-800">*</span>
               </label>
               <textarea
-                className=" mt-2 w-full min-w-0 rounded-lg px-1 py-2 border-1 border-gray-600/80 "
+                className=" mt-2 w-full min-w-0 rounded-lg px-1 py-2 border-1 border-gray-600/80"
+rows="4"
                 name="idea"
                 value={formData.idea}
                 onChange={handleChange}
