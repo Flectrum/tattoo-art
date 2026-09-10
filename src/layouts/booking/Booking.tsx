@@ -100,7 +100,6 @@ export const Booking = () => {
       ...prev,
       [name]: undefined,
     }));
-    console.log(todayDate);
   };
 
   const handleContactMethod = (type: ContactMethod) => {
