@@ -72,7 +72,7 @@ const styles = [
 ];
 
 export const Booking = () => {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
 
   const todayDate = new Date().toISOString().split("T")[0];
 
