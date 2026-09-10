@@ -72,8 +72,8 @@ const styles = [
 ];
 
 export const Booking = () => {
-  const [step, setStep] = useState(1);
-  const todayDate = Date.now.toString();
+  const [step, setStep] = useState(2);
+  const todayDate = new Date().toString();
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -86,7 +86,10 @@ export const Booking = () => {
   const [formErrors, setFormErrors] = useState<Errors>({});
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
+    e:
+      | ChangeEvent<HTMLInputElement>
+      | ChangeEvent<HTMLTextAreaElement>
+      | ChangeEvent<HTMLSelectElement>,
   ) => {
     const { name, value } = e.target;
 
@@ -96,6 +99,7 @@ export const Booking = () => {
       ...prev,
       [name]: undefined,
     }));
+    console.log(todayDate);
   };
 
   const handleContactMethod = (type: ContactMethod) => {
@@ -253,7 +257,12 @@ export const Booking = () => {
                 <p className="text-red-500 text-sm">{formErrors.idea}</p>
               )}
               <label className="mt-2">Preferred style</label>
-              <select className="border-1 rounded mt-3 px-1">
+              <select
+                defaultValue={"default"}
+                className="bg-black text-white border border-gray-600 rounded-lg px-3 py-2"
+                onChange={handleChange}
+              >
+                <option value={"default"} disabled hidden></option>
                 {styles.map((style, index) => (
                   <option
                     key={index}
