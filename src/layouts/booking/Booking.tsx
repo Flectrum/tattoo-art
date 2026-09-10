@@ -281,7 +281,7 @@ export const Booking = () => {
                 required
                 onChange={handleChange}
                 name="date"
-                min={todayDate}
+                min={"2026-09-10"}
               />
               <p className="mt-1 text-muted">Optional — we'll confirm later</p>
             </div>
