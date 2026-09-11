@@ -4,7 +4,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useClickOutside } from "../../../common/useClickOutside";
 
 export const Dropdown = () => {
-  const dropdownItems = [
+  const languages = [
     { labelShort: "EN", labelFull: "English", lang: "en" },
     { labelShort: "ET", labelFull: "Eesti", lang: "et" },
     { labelShort: "RU", labelFull: "Русский", lang: "ru" },
@@ -60,7 +60,7 @@ export const Dropdown = () => {
             role="none"
             className="py-1 rounded-md border border-border border-gray-100/20 py-1 shadow-lg  bg-black"
           >
-            {dropdownItems.map((item) => (
+            {languages.map((item) => (
               <button
                 type="button"
                 key={item.lang}

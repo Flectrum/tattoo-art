@@ -62,7 +62,7 @@ export const Contacts = () => {
                 className="absolute inset-0 h-full w-full rounded-lg"
               ></iframe>
             </div>
-            <div className="flex flex-wrap sm:justify-between mt-2">
+            <div className="flex flex-wrap lg:justify-between mt-2">
               <div className="flex inline-flex">
                 <GoogleMapTag className="w-4 fill-red-800 " />
                 <span className="text-muted">

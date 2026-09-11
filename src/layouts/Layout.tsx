@@ -1,15 +1,28 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import { Footer } from "./navigation-bars/Footer";
 import { Navbar } from "./navigation-bars/Navbar";
+import { PageNotFound } from "./pageNotFound-page/PageNotFound";
 
 export const Layout = () => {
+  const { lang } = useParams();
+
+  const language = lang ?? "en";
+
+  const languages = ["es", "et", "ru", "en"];
+  console.log(language);
   return (
-    <div className="flex min-h-dvh flex-col">
-      <Navbar />
-      <main className="flex-1">
-        <Outlet />
-      </main>
-      <Footer />
-    </div>
+    <>
+      {!languages.includes(language) ? (
+        <PageNotFound />
+      ) : (
+        <div className="flex min-h-dvh flex-col">
+          <Navbar />
+          <main className="flex-1">
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
+      )}
+    </>
   );
 };
