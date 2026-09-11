@@ -2,17 +2,18 @@ import { Outlet, useParams } from "react-router-dom";
 import { Footer } from "./navigation-bars/Footer";
 import { Navbar } from "./navigation-bars/Navbar";
 import { PageNotFound } from "./pageNotFound-page/PageNotFound";
+import { languages } from "../common/Languages";
 
 export const Layout = () => {
   const { lang } = useParams();
 
   const language = lang ?? "en";
 
-  const languages = ["es", "et", "ru", "en"];
-  console.log(language);
+  const allLanguages = languages.map((language) => language.lang);
+
   return (
     <>
-      {!languages.includes(language) ? (
+      {!allLanguages.includes(language) ? (
         <PageNotFound />
       ) : (
         <div className="flex min-h-dvh flex-col">
