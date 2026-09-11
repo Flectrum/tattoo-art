@@ -29,9 +29,15 @@ export const Contacts = () => {
                 title="A. Lauteri tn 5, 10114 Tallinn"
                 className="absolute inset-0 h-full w-full rounded-lg"
               ></iframe>
-              <div>
-                <p className="text-muted">A. Lauteri tn 5, 10114 Tallinn</p>
-              </div>
+            </div>
+            <div className="flex justify-between mt-2">
+              <p className="text-muted">A. Lauteri tn 5, 10114 Tallinn</p>
+              <a
+                href="https://www.google.com/maps/place/?q=place_id:ChIJW0sQoGUlpkIRwHRt6ZUAa_c"
+                className="text-red-600"
+              >
+                <span className="hover:underline"> Open in Google Maps</span>
+              </a>
             </div>
           </div>
         </div>

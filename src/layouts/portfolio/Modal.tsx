@@ -79,19 +79,7 @@ export default function Modal({
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       />
-      <button
-        className="absolute rounded-md p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-500 transition-colors right-0 rotate-270"
-        onClick={showPrev}
-      >
-        <GoDown />
-      </button>
 
-      <button
-        className="absolute rounded-md p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-500 transition-colors left-0 rotate-90"
-        onClick={showNext}
-      >
-        <GoDown />
-      </button>
       <button
         onClick={onClose}
         className="absolute rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-500 transition-colors top-5 right-5"
@@ -105,6 +93,19 @@ export default function Modal({
       >
         <img className="max-h-[85vh] w-auto" src={pictures[index].path} />{" "}
       </div>
+      <button
+        className="absolute rounded-full p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-800 transition-colors right-0 rotate-270"
+        onClick={showPrev}
+      >
+        <GoDown className="m-2 w-5" />
+      </button>
+
+      <button
+        className="absolute rounded-full p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-500 transition-colors left-0 rotate-90"
+        onClick={showNext}
+      >
+        <GoDown className="m-2 w-5" />
+      </button>
     </div>
   );
 }

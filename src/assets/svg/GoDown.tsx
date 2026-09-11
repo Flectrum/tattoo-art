@@ -1,4 +1,6 @@
-export const GoDown = () => {
+import type { SVGProps } from "react";
+
+export const GoDown = ({ className }: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="12"
@@ -6,7 +8,7 @@ export const GoDown = () => {
       viewBox="0 0 12 12"
       fill="none"
       aria-hidden="true"
-      className="transition-transform duration-200"
+      className={className}
     >
       <path
         d="M2 4l4 4 4-4"
