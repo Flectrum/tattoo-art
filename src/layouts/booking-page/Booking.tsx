@@ -4,32 +4,9 @@ import { Instagram } from "../../assets/svg/Instagram";
 import { Email } from "../../assets/svg/Email";
 import { WhatsApp } from "../../assets/svg/WhatsApp";
 import { Link, useParams } from "react-router-dom";
-
-interface ContactMethod {
-  name: string;
-  svg: React.ReactNode;
-  label: string;
-  placeholder: string;
-  contact: string;
-}
-
-interface FormData {
-  name: string;
-  phoneNumber: string;
-  contactMethod: ContactMethod | null;
-  contact: string;
-  idea: string;
-  style?: string;
-  date?: Date;
-}
-
-interface Errors {
-  name?: string;
-  phoneNumber?: string;
-  contactMethod?: string;
-  contact?: string;
-  idea?: string;
-}
+import type { ContactMethod } from "../../models/ContactMethod";
+import type { FormData } from "../../models/FormData";
+import type { Errors } from "../../models/FormErrors";
 
 const contactMethods: ContactMethod[] = [
   {

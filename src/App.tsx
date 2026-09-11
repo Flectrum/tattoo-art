@@ -1,13 +1,13 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Background } from "./layouts/Background";
-import { Homepage } from "./layouts/homepage/Homepage";
-import { Portfolio } from "./layouts/portfolio/Portfolio";
+import { Homepage } from "./layouts/home-page/Homepage";
+import { Portfolio } from "./layouts/portfolio-page/Portfolio";
 import { Layout } from "./layouts/Layout";
-import { About } from "./layouts/about/About";
-import { pictures } from "./layouts/portfolio/Pictures";
-import { Booking } from "./layouts/booking/Booking";
-import { Contacts } from "./layouts/contacts/Contacts";
+import { About } from "./layouts/about-page/About";
+import { pictures } from "./layouts/portfolio-page/Pictures";
+import { Booking } from "./layouts/booking-page/Booking";
+import { Contacts } from "./layouts/contacts-page/Contacts";
 
 function App() {
   return (

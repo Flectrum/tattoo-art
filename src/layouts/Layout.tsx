@@ -1,7 +1,7 @@
 import { Outlet, useParams } from "react-router-dom";
 import { Footer } from "./navigation-bars/Footer";
 import { Navbar } from "./navigation-bars/Navbar";
-import { PageNotFound } from "./pageNotFound-page/PageNotFound";
+import { PageNotFound } from "./not-found-page/PageNotFound";
 import { languages } from "../common/Languages";
 
 export const Layout = () => {
