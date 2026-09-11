@@ -12,28 +12,28 @@ export const Contacts = () => {
         <p className="mt-2 text-muted">Get in touch</p>
         <div className="mt-10 grid gap-12 lg:grid-cols-2">
           <div className="space-y-6 text-white">
-            <div className="flex gap-3 border border-[#484747] w-2/3 bg-[#141414] hover:bg-[#353434] rounded-md p-2">
+            <div className="flex gap-3 border border-[#484747] w-full md:w-2/3 bg-[#141414] hover:bg-[#353434] rounded-md p-2">
               <Telegram className="w-6" />
               <div>
                 <p className="text-muted">Telegram</p>
                 <p className="font-bold">@GoQa123</p>
               </div>
             </div>
-            <div className="flex gap-3 border border-[#484747] w-2/3 bg-[#141414] hover:bg-[#353434] rounded-md p-2">
+            <div className="flex gap-3 border border-[#484747] w-full md:w-2/3 bg-[#141414] hover:bg-[#353434] rounded-md p-2">
               <Instagram className="w-6" />
               <div>
                 <p className="text-muted">Instagram</p>
                 <p className="font-bold">@beqa_tattoo_art</p>
               </div>
             </div>
-            <div className="flex gap-3 border border-[#484747] w-2/3 bg-[#141414] hover:bg-[#353434] rounded-md p-2">
+            <div className="flex gap-3 border border-[#484747] w-full md:w-2/3 bg-[#141414] hover:bg-[#353434] rounded-md p-2">
               <Phone className="w-6" />
               <div>
                 <p className="text-muted">Phone</p>
                 <p className="font-bold">+372 55562148</p>
               </div>
             </div>{" "}
-            <div className="flex gap-3 border border-[#484747] w-2/3 bg-[#141414] hover:bg-[#353434] rounded-md p-2">
+            <div className="flex gap-3 border border-[#484747] w-full md:w-2/3 bg-[#141414] hover:bg-[#353434] rounded-md p-2">
               <Clock className="w-6" />
               <div>
                 <p className="text-muted">Working hours</p>
