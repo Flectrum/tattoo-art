@@ -2,15 +2,9 @@ import { useRef, useState } from "react";
 import { GoDown } from "../../../assets/svg/GoDown";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useClickOutside } from "../../../common/useClickOutside";
+import { languages } from "../../../common/Languages";
 
 export const Dropdown = () => {
-  const languages = [
-    { labelShort: "EN", labelFull: "English", lang: "en" },
-    { labelShort: "ET", labelFull: "Eesti", lang: "et" },
-    { labelShort: "RU", labelFull: "Русский", lang: "ru" },
-    { labelShort: "ES", labelFull: "Español", lang: "es" },
-  ];
-
   const { lang } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
