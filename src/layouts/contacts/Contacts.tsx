@@ -1,4 +1,7 @@
+import { Clock } from "../../assets/svg/Clock";
+import { GoogleMapTag } from "../../assets/svg/GoogleMapTag";
 import { Instagram } from "../../assets/svg/Instagram";
+import { Phone } from "../../assets/svg/Phone";
 import { Telegram } from "../../assets/svg/Telegram";
 
 export const Contacts = () => {
@@ -8,15 +11,21 @@ export const Contacts = () => {
         <h1 className="text-white text-3xl font-bold">Contacts</h1>
         <p className="mt-2 text-muted">Get in touch</p>
         <div className="mt-10 grid gap-12 lg:grid-cols-2">
-          <div className="left text-white">
-            <div className="flex gap-3">
+          <div className="space-y-4 text-white">
+            <div className="flex gap-3 w-full bg-[#5e5b5b] hover:bg-[#353434] rounded-md p-2">
               <Telegram className="w-6" /> Telegram
             </div>
-            <div className="flex gap-3">
+            <div className="flex gap-3 w-full bg-[#5e5b5b] hover:bg-[#353434] rounded-md p-2">
               <Instagram className="w-6" /> Instagram
             </div>
-            <div className="">phone number</div>
-            <div className="">work hours</div>
+            <div className="flex gap-3 w-full bg-[#5e5b5b] hover:bg-[#353434] rounded-md p-2">
+              <Phone className="w-6" />
+              Phone number
+            </div>
+            <div className="flex gap-3 w-full bg-[#5e5b5b] hover:bg-[#353434] rounded-md p-2">
+              <Clock className="w-6" />
+              Work hours
+            </div>
           </div>
           <div className="right text-white">
             <div className="relative aspect-video w-full overflow-hidded rounded-lg">
@@ -31,7 +40,10 @@ export const Contacts = () => {
               ></iframe>
             </div>
             <div className="flex justify-between mt-2">
-              <p className="text-muted">A. Lauteri tn 5, 10114 Tallinn</p>
+              <div className="flex">
+                <GoogleMapTag className="w-4 fill-red-800 " />
+                <p className="text-muted"> A. Lauteri tn 5, 10114 Tallinn</p>
+              </div>
               <a
                 href="https://www.google.com/maps/place/?q=place_id:ChIJW0sQoGUlpkIRwHRt6ZUAa_c"
                 className="text-red-600"
