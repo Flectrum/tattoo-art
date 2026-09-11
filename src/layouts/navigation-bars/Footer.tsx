@@ -1,9 +1,13 @@
+import { useParams } from "react-router-dom";
 import { Email } from "../../assets/svg/Email";
 import { Instagram } from "../../assets/svg/Instagram";
 import { Telegram } from "../../assets/svg/Telegram";
 import { navItems } from "./components/NavItems";
 
 export const Footer = () => {
+  const { lang } = useParams();
+  const year = new Date().getFullYear();
+
   return (
     <footer className="section-max-w section-padding py-10 z-30 relative page-surface border-t-1 border-white/10">
       <div>
@@ -26,14 +30,14 @@ export const Footer = () => {
             </button>
           </div>
           <div className="mt-2 whitespace-nowrap">
-            © 2026 Beka Gokadze. All rights reserved.
+            © {year} Beka Gokadze. All rights reserved.
           </div>
         </div>
         <div className="mt-3 ">
           <ul className="flex flex-wrap items-center justify-center gap-5 text-muted">
             {navItems.map(({ label, href }) => (
               <li key={label} className="block hover:text-white">
-                <a href={href}>{label}</a>
+                <a href={`/${lang}/${href}`}>{label}</a>
               </li>
             ))}
           </ul>

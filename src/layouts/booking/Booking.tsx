@@ -3,6 +3,7 @@ import { Telegram } from "../../assets/svg/Telegram";
 import { Instagram } from "../../assets/svg/Instagram";
 import { Email } from "../../assets/svg/Email";
 import { WhatsApp } from "../../assets/svg/WhatsApp";
+import { Link, useParams } from "react-router-dom";
 
 interface ContactMethod {
   name: string;
@@ -73,6 +74,7 @@ const styles = [
 
 export const Booking = () => {
   const [step, setStep] = useState(1);
+  const { lang } = useParams();
 
   const todayDate = new Date().toISOString().split("T")[0];
 
@@ -154,9 +156,12 @@ export const Booking = () => {
         </div>
         <div className="mt-3">
           If I don't reply within 24 hours, write to me directly
-          <a href="#" className="text-red-800 pl-1 pt-1 underline">
+          <Link
+            to={`/${lang}/contacts`}
+            className="text-red-800 pl-1 pt-1 underline"
+          >
             Contact me →
-          </a>
+          </Link>
         </div>
         <form method="POST" className="flex w-full max-w-xl flex-col mt-1">
           {step === 1 && (
@@ -166,7 +171,7 @@ export const Booking = () => {
                 Name <span className="text-red-800">*</span>
               </label>
               <input
-                className=" mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border border-gray-600/80 "
+                className="relative bg-[#141414] mt-2 w-full min-w-0  rounded-lg px-2 md:px-5 py-2 border border-gray-600/80 "
                 type="text"
                 name="name"
                 onChange={handleChange}
@@ -180,7 +185,7 @@ export const Booking = () => {
                 Phone number <span className="text-red-800">*</span>
               </label>
               <input
-                className=" mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
+                className="relative mt-2 w-full min-w-0 bg-[#141414] rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
                 type="text"
                 name="phoneNumber"
                 onChange={handleChange}
@@ -202,7 +207,7 @@ export const Booking = () => {
                       value={formData.contactMethod?.name}
                       onClick={() => handleContactMethod(item)}
                       name="connectionType.name"
-                      className={`relative flex flex-wrap items-center rounded-lg border-1  
+                      className={`relative bg-[#141414] flex flex-wrap items-center rounded-lg border-1  
                 ${formData.contactMethod?.name === item.name ? "text-red-500 border-red-500" : "text-[#737373] border-[#737373] hover:text-white"}`}
                     >
                       <div className="mx-3 my-2 flex items-center gap-2">
@@ -225,7 +230,7 @@ export const Booking = () => {
                     <span className="text-red-800">*</span>
                   </label>
                   <input
-                    className=" mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
+                    className="relative bg-[#141414] mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
                     type="text"
                     required
                     onChange={handleChange}
@@ -241,7 +246,7 @@ export const Booking = () => {
               <div className="flex justify-end">
                 <button
                   type="button"
-                  className="mt-8 h-10 border-1 border-white bg-red-500 rounded-lg hover:bg-red-600"
+                  className="mt-8 h-10 bg-red-500 rounded-lg hover:bg-red-600"
                   onClick={() => handleNext()}
                 >
                   <span className="mx-8 font-bold text-xl">Next </span>
@@ -257,7 +262,7 @@ export const Booking = () => {
                 <span className="text-red-800">*</span>
               </label>
               <textarea
-                className=" mt-2 w-full min-w-0 rounded-lg px-1 py-2 border-1 border-gray-600/80"
+                className="relative bg-[#141414] mt-2 w-full min-w-0 rounded-lg px-1 py-2 border-1 border-gray-600/80"
                 rows={4}
                 name="idea"
                 value={formData.idea}
@@ -270,16 +275,23 @@ export const Booking = () => {
               <label className="mt-2">Preferred style</label>
               <select
                 defaultValue={"default"}
-                className="text-white border bg-black border-gray-600 rounded-lg px-3 py-2"
+                className="relative bg-[#141414] text-white border border-gray-600 rounded-lg px-3 py-2"
                 name="style"
                 onChange={handleChange}
               >
-                <option value={"default"} disabled hidden></option>
+                <option
+                  value={"default"}
+                  disabled
+                  hidden
+                  className="relative bg-[#141414]"
+                >
+                  Choose your option...
+                </option>
                 {styles.map((style, index) => (
                   <option
                     key={index}
                     value={style}
-                    className="bg-black text-white"
+                    className="relative bg-[#141414] text-white"
                   >
                     {style}
                   </option>
@@ -288,7 +300,7 @@ export const Booking = () => {
 
               <label className="mt-2">Preferred date</label>
               <input
-                className=" mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
+                className="relative bg-[#141414] mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
                 type="date"
                 required
                 onChange={handleChange}
@@ -296,10 +308,17 @@ export const Booking = () => {
                 min={todayDate}
               />
               <p className="mt-1 text-muted">Optional — we'll confirm later</p>
-              <div className="flex justify-end">
+              <div className="flex justify-between">
                 <button
                   type="button"
-                  className="mt-8 h-10 border-1 border-white bg-red-500 rounded-lg hover:bg-red-600"
+                  className="mt-10 h-8 rounded-lg  hover:bg-[#2a2a2a]"
+                  onClick={() => setStep(step - 1)}
+                >
+                  <span className="mx-6 font-semibold text-xl">Back </span>
+                </button>
+                <button
+                  type="button"
+                  className="mt-8 h-10 bg-red-500 rounded-lg hover:bg-red-600"
                   onClick={() => handleNext()}
                 >
                   <span className="mx-8 font-bold text-xl">Next </span>
@@ -353,6 +372,22 @@ export const Booking = () => {
                     </dd>
                   </div>
                 </dl>
+              </div>
+              <div className="flex justify-between">
+                <button
+                  type="button"
+                  className="mt-10 h-8 rounded-lg  hover:bg-[#2a2a2a]"
+                  onClick={() => setStep(step - 1)}
+                >
+                  <span className="mx-6 font-semibold text-xl">Back </span>
+                </button>
+                <button
+                  type="button"
+                  className="mt-8 h-10  bg-red-500 rounded-lg hover:bg-red-600"
+                  onClick={() => handleNext()}
+                >
+                  <span className="mx-8 font-bold text-xl">Confirm</span>
+                </button>
               </div>
             </div>
           )}

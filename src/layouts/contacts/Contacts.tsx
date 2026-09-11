@@ -2,8 +2,9 @@ export const Contacts = () => {
   return (
     <>
       <div className="relative  px-5 md:px-0 md:container md:mx-auto py-10">
-        <div className="text-white text-3xl font-bold">Contacts</div>
-        <div className="flex justify-between">
+        <h1 className="text-white text-3xl font-bold">Contacts</h1>
+        <p className="mt-2 text-muted">Get in touch</p>
+        <div className="mt-10 grid gap-12 lg:grid-cols-2">
           <div className="left text-white">
             <div className="">telegram</div>
             <div className="">instagram</div>
@@ -11,7 +12,17 @@ export const Contacts = () => {
             <div className="">work hours</div>
           </div>
           <div className="right text-white">
-            <div className="">map</div>
+            <div className="">
+              {/* <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2028.8!2d24.7577261!3d59.4314125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46929565a0104b5b%3A0xf76b0095e96d74c0!2sTattoo%20Art%20%7C%20Tattoo%20Tallinn!5e0!3m2!1sen!2see!4v1"
+                width="100%"
+                height="100%"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="A. Lauteri tn 5, 10114 Tallinn"
+                className="absolute inset-0 h-full w-full"
+              ></iframe> */}
+            </div>
           </div>
         </div>
       </div>

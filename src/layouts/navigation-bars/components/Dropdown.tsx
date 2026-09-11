@@ -52,7 +52,10 @@ export const Dropdown = () => {
         </button>
       </div>
       {isOpen && (
-        <div role="menu" className="absolute right-0 mt-2">
+        <div
+          role="menu"
+          className="absolute right-0 mt-2 opacity-100 transition-opacity duration-400 starting:opacity-0"
+        >
           <div
             role="none"
             className="py-1 rounded-md border border-border border-gray-100/20 py-1 shadow-lg  bg-black"
