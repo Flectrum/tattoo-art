@@ -150,11 +150,11 @@ export const Booking = () => {
   return (
     <>
       <div className="flex flex-col justify-center items-center text-white px-3 py-10">
-        <div className="text-white text-3xl font-bold">Book a Session</div>
-        <div className="text-muted mt-3">
+        <h1 className="text-white text-3xl font-bold">Book a Session</h1>
+        <p className="text-muted mt-3">
           Fill in the form and I'll contact you within 24 hours
-        </div>
-        <div className="mt-3">
+        </p>
+        <p className="mt-3">
           If I don't reply within 24 hours, write to me directly
           <Link
             to={`/${lang}/contacts`}
@@ -162,11 +162,11 @@ export const Booking = () => {
           >
             Contact me →
           </Link>
-        </div>
+        </p>
         <form method="POST" className="flex w-full max-w-xl flex-col mt-1">
           {step === 1 && (
             <div className="flex flex-col mt-10">
-              <div className="flex  font-bold text-2xl">Your Details</div>
+              <h2 className="flex  font-bold text-2xl">Your Details</h2>
               <label className="mt-5">
                 Name <span className="text-red-800">*</span>
               </label>
@@ -257,7 +257,7 @@ export const Booking = () => {
           )}
           {step === 2 && (
             <div className="flex flex-col mt-10">
-              <div className="flex  font-bold text-2xl">Your Tattoo Idea</div>
+              <h2 className="flex  font-bold text-2xl">Your Tattoo Idea</h2>
               <label className="mt-5">
                 Describe your idea
                 <span className="text-red-800">*</span>
@@ -329,9 +329,7 @@ export const Booking = () => {
           )}
           {step === 3 && (
             <div className="flex flex-col mt-10">
-              <div className="flex  font-bold text-2xl">
-                Review Your Request
-              </div>
+              <h2 className="flex  font-bold text-2xl">Review Your Request</h2>
               <div className="relative border bg-[#141414] border-[#2a2a2a] rounded-lg mt-5">
                 <p className="border-b border-[#2a2a2a] px-4 py-3 font-medium uppercase tracking-wider text-muted">
                   {" "}

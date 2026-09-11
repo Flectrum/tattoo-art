@@ -15,8 +15,8 @@ export const Portfolio = (props: { pictures: Picture[] }) => {
   return (
     <div className="py-10 px-5 md:px-0 md:container md:mx-auto">
       <div className="block mb-10">
-        <div className="text-white text-4xl font-bold ">Portfolio</div>
-        <div className="text-muted">Selected works</div>
+        <h1 className="text-white text-4xl font-bold ">Portfolio</h1>
+        <p className="text-muted">Selected works</p>
       </div>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
         {props.pictures?.map((pic, index) => (

@@ -22,40 +22,34 @@ export const About = () => {
             <img src={artist} className="rounded"></img>
           </div>
           <div className="right-part ">
-            <div className="text-red-800 text-bold uppercase">
-              About the Artist
-            </div>
-            <div className="font-bold text-white text-3xl mt-3">
-              Beka Gokadze
-            </div>
-            <div className="text-muted mt-10 text-xl">
+            <p className="text-red-800 text-bold uppercase">About the Artist</p>
+            <h1 className="font-bold text-white text-3xl mt-3">Beka Gokadze</h1>
+            <p className="text-muted mt-10 text-xl">
               I'm a professional tattoo artist with over 7 years of experience.
               I specialise in creating unique, personalised designs that fit
               perfectly to your body and personality. I work to the strictest
               hygiene standards, using only the highest quality inks and
               equipment.
-            </div>
+            </p>
             <div className="flex  gap-3 mt-10">
               <div className="block border-r-1 border-white pr-5">
-                <div className="text-bold text-white">7+ лет</div>
-                <div className="text-muted">Опыт</div>
+                <p className="text-bold text-white">7+ лет</p>
+                <p className="text-muted">Опыт</p>
               </div>
               <div className="block">
-                <div className="text-white text-bold"> 300+ </div>
-                <div className="text-muted">Работ сделано</div>
+                <p className="text-white text-bold"> 300+ </p>
+                <p className="text-muted">Работ сделано</p>
               </div>
             </div>
-            <div className="text-muted mt-5 uppercase text-semibold">
-              Стили
-            </div>
+            <p className="text-muted mt-5 uppercase text-semibold">Стили</p>
             <div className="text-muted flex flex-wrap gap-1 gap-3 mt-2">
               {styles.map((text: string, index: number) => (
-                <div
+                <span
                   key={index}
                   className=" px-2 border-1 border-[#595858] rounded-lg flex justify-center items-center md:rounded-full"
                 >
                   {text}
-                </div>
+                </span>
               ))}
             </div>
             <div className="mt-10">

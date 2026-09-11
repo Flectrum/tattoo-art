@@ -11,20 +11,34 @@ export const Contacts = () => {
         <h1 className="text-white text-3xl font-bold">Contacts</h1>
         <p className="mt-2 text-muted">Get in touch</p>
         <div className="mt-10 grid gap-12 lg:grid-cols-2">
-          <div className="space-y-4 text-white">
-            <div className="flex gap-3 w-full bg-[#5e5b5b] hover:bg-[#353434] rounded-md p-2">
-              <Telegram className="w-6" /> Telegram
+          <div className="space-y-6 text-white">
+            <div className=" ml-3 flex gap-3 border border-[#484747] w-2/3 bg-[#141414] hover:bg-[#353434] rounded-md p-2">
+              <Telegram className="w-6" />
+              <div>
+                <p className="text-muted">Telegram</p>
+                <p className="font-bold">@GoQa123</p>
+              </div>
             </div>
-            <div className="flex gap-3 w-full bg-[#5e5b5b] hover:bg-[#353434] rounded-md p-2">
-              <Instagram className="w-6" /> Instagram
+            <div className="flex gap-3 border border-[#484747] w-2/3 bg-[#141414] hover:bg-[#353434] rounded-md p-2">
+              <Instagram className="w-6" />
+              <div>
+                <p className="text-muted">Instagram</p>
+                <p className="font-bold">@beqa_tattoo_art</p>
+              </div>
             </div>
-            <div className="flex gap-3 w-full bg-[#5e5b5b] hover:bg-[#353434] rounded-md p-2">
+            <div className="flex gap-3 border border-[#484747] w-2/3 bg-[#141414] hover:bg-[#353434] rounded-md p-2">
               <Phone className="w-6" />
-              Phone number
-            </div>
-            <div className="flex gap-3 w-full bg-[#5e5b5b] hover:bg-[#353434] rounded-md p-2">
+              <div>
+                <p className="text-muted">Phone</p>
+                <p className="font-bold">+372 55562148</p>
+              </div>
+            </div>{" "}
+            <div className="flex gap-3 border border-[#484747] w-2/3 bg-[#141414] hover:bg-[#353434] rounded-md p-2">
               <Clock className="w-6" />
-              Work hours
+              <div>
+                <p className="text-muted">Working hours</p>
+                <p className="font-bold">Tue-Sun 10:00-19:00</p>
+              </div>
             </div>
           </div>
           <div className="right text-white">
@@ -42,7 +56,10 @@ export const Contacts = () => {
             <div className="flex justify-between mt-2">
               <div className="flex">
                 <GoogleMapTag className="w-4 fill-red-800 " />
-                <p className="text-muted"> A. Lauteri tn 5, 10114 Tallinn</p>
+                <span className="text-muted">
+                  {" "}
+                  A. Lauteri tn 5, 10114 Tallinn
+                </span>
               </div>
               <a
                 href="https://www.google.com/maps/place/?q=place_id:ChIJW0sQoGUlpkIRwHRt6ZUAa_c"
