@@ -172,6 +172,7 @@ export const Booking = () => {
               </label>
               <input
                 className="relative bg-[#141414] mt-2 w-full min-w-0  rounded-lg px-2 md:px-5 py-2 border border-gray-600/80 "
+                autoFocus
                 type="text"
                 name="name"
                 onChange={handleChange}

@@ -19,15 +19,15 @@ export const Footer = () => {
             <p className="mt-0.5">Tallinn, Estonia</p>
           </div>
           <div className="flex align-center justify-center gap-3 mt-2 md:ml-55">
-            <button>
+            <a href="https://t.me/GoQa123">
               <Telegram className="w-7 hover:fill-red-600 " />
-            </button>
-            <button>
+            </a>
+            <a href="https://www.instagram.com/beqa_tattoo_art?igsh=ZG1sbXBrem1ma3Vu">
               <Instagram className="w-7 hover:fill-red-600 transition-colors" />
-            </button>
-            <button>
+            </a>
+            <a href="mailto:goqadzebeqa@gmail.com">
               <Email className="w-7 hover:text-red-600 transition-colors" />
-            </button>
+            </a>
           </div>
           <div className="mt-2 whitespace-nowrap">
             © {year} Beka Gokadze. All rights reserved.
