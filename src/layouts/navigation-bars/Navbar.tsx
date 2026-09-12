@@ -1,5 +1,4 @@
 import { Logo } from "../../assets/svg/Logo";
-import logo from "./../../assets/logo.svg";
 import { NavbarDesktop } from "./components/NavbarDesktop";
 import { NavbarMobile } from "./components/NavbarMobile";
 import { navItems } from "./components/NavItems";
