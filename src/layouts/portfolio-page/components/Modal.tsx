@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from "react";
-import { GoDown } from "../../assets/svg/GoDown";
-import type { Picture } from "./Pictures";
+import { GoDown } from "../../../assets/svg/GoDown";
+import type { Picture } from "./../Pictures";
 
 interface ModalProps {
   isOpen: boolean;

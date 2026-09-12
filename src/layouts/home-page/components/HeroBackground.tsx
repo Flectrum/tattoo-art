@@ -1,4 +1,4 @@
-import background from "./../../assets/background.mp4";
+import background from "./../../../assets/background.mp4";
 
 export const HeroBackground = () => {
   return (
