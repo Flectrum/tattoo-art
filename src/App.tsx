@@ -8,13 +8,17 @@ import { About } from "./layouts/about-page/About";
 import { pictures } from "./layouts/portfolio-page/Pictures";
 import { Booking } from "./layouts/booking-page/Booking";
 import { Contacts } from "./layouts/contacts-page/Contacts";
+import { getUserLanguage } from "./common/Languages";
 
 function App() {
   return (
     <>
       <Background />
       <Routes>
-        <Route path="/" element={<Navigate to="/en" replace />} />
+        <Route
+          path="/"
+          element={<Navigate to={`/${getUserLanguage()}`} replace />}
+        />
         <Route path="/:lang" element={<Layout />}>
           <Route index element={<Homepage />} />
           <Route path="portfolio" element={<Portfolio pictures={pictures} />} />

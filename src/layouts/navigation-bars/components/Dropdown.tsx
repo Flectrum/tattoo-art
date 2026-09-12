@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { GoDown } from "../../../assets/svg/GoDown";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useClickOutside } from "../../../common/useClickOutside";
-import { languages } from "../../../common/Languages";
+import { supportedLanguages } from "../../../common/Languages";
 
 export const Dropdown = () => {
   const { lang } = useParams();
@@ -54,7 +54,7 @@ export const Dropdown = () => {
             role="none"
             className="py-1 rounded-md border border-border border-gray-100/20 py-1 shadow-lg  bg-black"
           >
-            {languages.map((item) => (
+            {supportedLanguages.map((item) => (
               <button
                 type="button"
                 key={item.lang}
