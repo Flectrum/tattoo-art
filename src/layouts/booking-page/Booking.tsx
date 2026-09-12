@@ -97,22 +97,22 @@ export const Booking = () => {
     const errors: Errors = {};
 
     if (!formData.name.trim()) {
-      errors.name = "This field is required";
+      errors.name = t.booking.emptyFieldErr;
     }
     if (!formData.phoneNumber.trim()) {
-      errors.phoneNumber = "This field is required";
+      errors.phoneNumber = t.booking.emptyFieldErr;
     }
     if (!formData.contactMethod) {
-      errors.contactMethod = "This field is required";
+      errors.contactMethod = t.booking.emptyFieldErr;
     }
 
     if (!formData.contact?.trim()) {
-      errors.contact = "This field is required";
+      errors.contact = t.booking.emptyFieldErr;
     }
 
     if (step === 2) {
       if (!formData.idea.trim()) {
-        errors.idea = "This field is required";
+        errors.idea = t.booking.emptyFieldErr;
       } else if (formData.idea.length < 10) {
         errors.idea = "Description must be at least 10 characters";
       }
