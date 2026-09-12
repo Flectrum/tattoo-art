@@ -7,6 +7,7 @@ import { Link, useParams } from "react-router-dom";
 import type { ContactMethod } from "../../models/ContactMethod";
 import type { FormData } from "../../models/FormData";
 import type { Errors } from "../../models/FormErrors";
+import { FormButton } from "./components/FormButton";
 
 const contactMethods: ContactMethod[] = [
   {
@@ -222,13 +223,7 @@ export const Booking = () => {
                 </>
               )}
               <div className="flex justify-end">
-                <button
-                  type="button"
-                  className="mt-8 h-10 bg-red-500 rounded-lg hover:bg-red-600"
-                  onClick={() => handleNext()}
-                >
-                  <span className="mx-8 font-bold text-xl">Next </span>
-                </button>
+                <FormButton label="Next" onClick={handleNext} />
               </div>
             </div>
           )}
@@ -294,13 +289,7 @@ export const Booking = () => {
                 >
                   <span className="mx-6 font-semibold text-xl">Back </span>
                 </button>
-                <button
-                  type="button"
-                  className="mt-8 h-10 bg-red-500 rounded-lg hover:bg-red-600"
-                  onClick={() => handleNext()}
-                >
-                  <span className="mx-8 font-bold text-xl">Next </span>
-                </button>
+                <FormButton label="Next" onClick={handleNext} />
               </div>
             </div>
           )}
@@ -357,13 +346,7 @@ export const Booking = () => {
                 >
                   <span className="mx-6 font-semibold text-xl">Back </span>
                 </button>
-                <button
-                  type="button"
-                  className="mt-8 h-10  bg-red-500 rounded-lg hover:bg-red-600"
-                  onClick={() => handleNext()}
-                >
-                  <span className="mx-8 font-bold text-xl">Confirm</span>
-                </button>
+                <FormButton label="Confirm" onClick={handleNext} />
               </div>
             </div>
           )}

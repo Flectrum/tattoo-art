@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Email } from "../../assets/svg/Email";
 import { Instagram } from "../../assets/svg/Instagram";
 import { Telegram } from "../../assets/svg/Telegram";
@@ -37,7 +37,7 @@ export const Footer = () => {
           <ul className="flex flex-wrap items-center justify-center gap-5 text-muted">
             {navItems.map(({ label, href }) => (
               <li key={label} className="block hover:text-white">
-                <a href={`/${lang}/${href}`}>{label}</a>
+                <Link to={`/${lang}/${href}`}>{label}</Link>
               </li>
             ))}
           </ul>
