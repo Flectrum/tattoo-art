@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Modal from "./Modal";
+import Modal from "./components/Modal";
 import { pictures, type Picture } from "./Pictures";
 
 export const Portfolio = (props: { pictures: Picture[] }) => {

@@ -1,5 +1,5 @@
-import { Hero } from "./Hero";
-import { HeroBackground } from "./HeroBackground";
+import { Hero } from "./components/Hero";
+import { HeroBackground } from "./components/HeroBackground";
 
 export const Homepage = () => {
   return (
