@@ -1,3 +1,4 @@
+
 export const et = {
 about: {
 about: "Tätoveerijast",
@@ -16,5 +17,44 @@ style5:"Ornamental",
 style6:"Trash Polka",
 style7:"Akvarell",
 bookAConsultation:"Broneeri konsultatsioon"
-}
+},
+hero: {
+    name: "Beka Gokadze · Tallinn",
+    h1:"Tätoveering, mis räägib sinu lugu",
+    about:"Professionaalne tätoveerija Tallinnas. Unikaalne disain, turvaline protsess.",
+    bookASessionBtn: "Broneeri aeg",
+    viewPortfolioBtn:"Vaata portfooliot"
+},
+navItems:{
+home:"Avaleht",
+portfolio:"Portfoolio",
+about:"Minust",
+blog:"Blogi",
+booking:"Broneerimine",
+contacts:"Kontaktid"
+},
+portfolio: {
+    h1: "Portfoolio",
+    p: "Valik minu töödest"
+},
+booking:{
+    h1:"Broneeri aeg",
+    fillAndContact:"Täida vorm ja võtan sinuga ühendust 24 tunni jooksul",
+    writeDirectly:"Kui ma 24 tunni jooksul ei vasta, kirjuta mulle otse",
+    contactMe:"Kirjuta mulle →",
+    yourDetails:"Sinu andmed",
+    name:"Nimi",
+    yourName:"Sinu nimi",
+    phoneNumber:"Telefoninumber",
+    whereDiscuss:"Kus soovid arutada?",
+    next:"Edasi",
+    emptyFieldErr:"Kohustuslik väli",
+    yourTattooIdea:"Tätoveeringu idee",
+    describeIdea:"Kirjelda ideed",
+    whatDoYouWant:"Mida soovid tätoveerida? Kirjelda ideed, suurust, asukohta kehal...",
+    preferredStyle:"Eelistatud stiil",
+    prefferedDate:"Eelistatud kuupäev",
+    optional:"Valikuline — täpsustame hiljem",
+    back:"Tagasi"
+},
 }

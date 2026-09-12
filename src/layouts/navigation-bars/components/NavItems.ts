@@ -1,10 +1,11 @@
 
+
 export type NavItem = {
   label: string;
   href: string;
 };
 
-export const navItems = [
+export const navItems =  [
   { label: "Home", href: "" },
   { label: "Portfolio", href: "portfolio" },
   { label: "About", href: "about" },

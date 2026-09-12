@@ -8,6 +8,7 @@ import type { ContactMethod } from "../../models/ContactMethod";
 import type { FormData } from "../../models/FormData";
 import type { Errors } from "../../models/FormErrors";
 import { FormButton } from "./components/FormButton";
+import { useLanguage } from "../../i18n/useLanguages";
 
 const contactMethods: ContactMethod[] = [
   {
@@ -51,6 +52,7 @@ const styles = [
 ];
 
 export const Booking = () => {
+  const { t } = useLanguage();
   const [step, setStep] = useState(1);
   const { lang } = useParams();
 
@@ -128,25 +130,25 @@ export const Booking = () => {
   return (
     <>
       <div className="flex flex-col justify-center items-center text-white px-3 py-10">
-        <h1 className="text-white text-3xl font-bold">Book a Session</h1>
-        <p className="text-muted mt-3">
-          Fill in the form and I'll contact you within 24 hours
-        </p>
+        <h1 className="text-white text-3xl font-bold">{t.booking.h1}</h1>
+        <p className="text-muted mt-3">{t.booking.fillAndContact}</p>
         <p className="mt-3">
-          If I don't reply within 24 hours, write to me directly
+          {t.booking.writeDirectly}
           <Link
             to={`/${lang}/contacts`}
             className="text-red-800 pl-1 pt-1 underline"
           >
-            Contact me →
+            {t.booking.contactMe}
           </Link>
         </p>
         <form method="POST" className="flex w-full max-w-xl flex-col mt-1">
           {step === 1 && (
             <div className="flex flex-col mt-10">
-              <h2 className="flex  font-bold text-2xl">Your Details</h2>
+              <h2 className="flex  font-bold text-2xl">
+                {t.booking.yourDetails}
+              </h2>
               <label className="mt-5">
-                Name <span className="text-red-800">*</span>
+                {t.booking.name} <span className="text-red-800">*</span>
               </label>
               <input
                 className="relative bg-[#141414] mt-2 w-full min-w-0  rounded-lg px-2 md:px-5 py-2 border border-gray-600/80 "
@@ -155,13 +157,13 @@ export const Booking = () => {
                 name="name"
                 onChange={handleChange}
                 value={formData.name}
-                placeholder="Your name"
+                placeholder={t.booking.yourName}
               />
               {formErrors.name && (
                 <p className="text-red-500 text-sm">{formErrors.name}</p>
               )}
               <label className="mt-2">
-                Phone number <span className="text-red-800">*</span>
+                {t.booking.phoneNumber} <span className="text-red-800">*</span>
               </label>
               <input
                 className="relative mt-2 w-full min-w-0 bg-[#141414] rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
@@ -175,7 +177,7 @@ export const Booking = () => {
                 <p className="text-red-500 text-sm">This field is required</p>
               )}
               <label className="mt-2">
-                Where would you like to discuss?{" "}
+                {t.booking.whereDiscuss}
                 <span className="text-red-800">*</span>
               </label>
               <ul className="flex flex-wrap gap-3 mt-3">
@@ -223,15 +225,17 @@ export const Booking = () => {
                 </>
               )}
               <div className="flex justify-end">
-                <FormButton label="Next" onClick={handleNext} />
+                <FormButton label={t.booking.next} onClick={handleNext} />
               </div>
             </div>
           )}
           {step === 2 && (
             <div className="flex flex-col mt-10">
-              <h2 className="flex  font-bold text-2xl">Your Tattoo Idea</h2>
+              <h2 className="flex  font-bold text-2xl">
+                {t.booking.yourTattooIdea}
+              </h2>
               <label className="mt-5">
-                Describe your idea
+                {t.booking.describeIdea}
                 <span className="text-red-800">*</span>
               </label>
               <textarea
@@ -240,12 +244,12 @@ export const Booking = () => {
                 name="idea"
                 value={formData.idea}
                 onChange={handleChange}
-                placeholder="What do you want to get tattooed? Describe the idea, size, placement..."
+                placeholder={t.booking.whatDoYouWant}
               />
               {formErrors.idea && (
                 <p className="text-red-500 text-sm">{formErrors.idea}</p>
               )}
-              <label className="mt-2">Preferred style</label>
+              <label className="mt-2">{t.booking.preferredStyle}</label>
               <select
                 defaultValue={"default"}
                 className="relative bg-[#141414] text-white border border-gray-600 rounded-lg px-3 py-2"
@@ -271,7 +275,7 @@ export const Booking = () => {
                 ))}
               </select>
 
-              <label className="mt-2">Preferred date</label>
+              <label className="mt-2">{t.booking.prefferedDate}</label>
               <input
                 className="relative bg-[#141414] mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
                 type="date"
@@ -280,16 +284,18 @@ export const Booking = () => {
                 name="date"
                 min={todayDate}
               />
-              <p className="mt-1 text-muted">Optional — we'll confirm later</p>
+              <p className="mt-1 text-muted">{t.booking.optional}</p>
               <div className="flex justify-between">
                 <button
                   type="button"
                   className="mt-10 h-8 rounded-lg  hover:bg-[#2a2a2a]"
                   onClick={() => setStep(step - 1)}
                 >
-                  <span className="mx-6 font-semibold text-xl">Back </span>
+                  <span className="mx-6 font-semibold text-xl">
+                    {t.booking.back}{" "}
+                  </span>
                 </button>
-                <FormButton label="Next" onClick={handleNext} />
+                <FormButton label={t.booking.next} onClick={handleNext} />
               </div>
             </div>
           )}
