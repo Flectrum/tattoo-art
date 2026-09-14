@@ -14,7 +14,7 @@ export const FormButton = ({ label, onClick }: ButtonProps) => {
     >
       <div className="flex mx-8 gap-3 justify-center items-center">
         <span className=" font-bold text-xl">{label}</span>{" "}
-        <GoDown className="rotate-270 w-4 h-4" />
+        <GoDown className="mt-1 rotate-270 w-4 h-4" />
       </div>
     </button>
   );
