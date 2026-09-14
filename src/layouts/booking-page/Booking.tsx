@@ -69,8 +69,11 @@ export const Booking = () => {
 
   const [formErrors, setFormErrors] = useState<Errors>({});
 
-  const handleSubmit = () => {
-    bookingService.sendFormData(formData);
+  const handleSubmit = async () => {
+    await bookingService.sendFormData({
+      name: formData.name,
+      phoneNumber: formData.phoneNumber,
+    });
   };
 
   const handleChange = (
