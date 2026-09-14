@@ -10,7 +10,6 @@ import type { Errors } from "../../models/FormErrors";
 import { FormButton } from "./components/FormButton";
 import { useLanguage } from "../../i18n/useLanguages";
 import { bookingService } from "../../services/bookingservice";
-import { GoDown } from "../../assets/svg/GoDown";
 import { BackButton } from "./components/BackButton";
 
 const contactMethods: ContactMethod[] = [
