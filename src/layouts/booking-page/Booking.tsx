@@ -9,6 +9,7 @@ import type { FormData } from "../../models/FormData";
 import type { Errors } from "../../models/FormErrors";
 import { FormButton } from "./components/FormButton";
 import { useLanguage } from "../../i18n/useLanguages";
+import { bookingService } from "../../services/bookingservice";
 
 const contactMethods: ContactMethod[] = [
   {
@@ -67,6 +68,10 @@ export const Booking = () => {
   });
 
   const [formErrors, setFormErrors] = useState<Errors>({});
+
+  const handleSubmit = () => {
+    bookingService.sendFormData(formData);
+  };
 
   const handleChange = (
     e:
@@ -352,7 +357,7 @@ export const Booking = () => {
                 >
                   <span className="mx-6 font-semibold text-xl">Back </span>
                 </button>
-                <FormButton label="Confirm" onClick={handleNext} />
+                <FormButton label="Confirm" onClick={() => handleSubmit()} />
               </div>
             </div>
           )}
