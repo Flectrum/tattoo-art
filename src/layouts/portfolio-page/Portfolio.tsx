@@ -16,7 +16,7 @@ export const Portfolio = (props: { pictures: Picture[] }) => {
   const { t } = useLanguage();
 
   return (
-    <div className="py-10 px-5 md:px-0 md:container md:mx-auto">
+    <div className="py-10 px-5 md:px-0 md:container md:mx-auto lg:px-20">
       <div className="block mb-10">
         <h1 className="text-white text-4xl font-bold ">{t.portfolio.h1}</h1>
         <p className="text-muted">{t.portfolio.p}</p>

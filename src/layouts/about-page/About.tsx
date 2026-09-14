@@ -17,7 +17,7 @@ export const About = () => {
   ];
   return (
     <>
-      <div className="relative px-5 md:px-0 container md:mx-auto">
+      <div className="relative px-5 md:px-0 container md:mx-auto lg:px-20">
         <div className="relative block md:flex md:flex-row md:justify-between my-10 ">
           <div className="w-full md:mr-50 object-contain">
             <img src={artist} className="rounded"></img>

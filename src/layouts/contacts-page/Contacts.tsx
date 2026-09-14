@@ -10,7 +10,7 @@ export const Contacts = () => {
 
   return (
     <>
-      <div className="relative  px-5 md:px-0 md:container md:mx-auto py-10">
+      <div className="relative  px-5 md:px-0 md:container md:mx-auto py-10 lg:px-20">
         <h1 className="text-white text-3xl font-bold">{t.contacts.h1}</h1>
         <p className="mt-2 text-muted">{t.contacts.contactMe}</p>
         <div className="mt-10 grid gap-12 lg:grid-cols-2">
