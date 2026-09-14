@@ -1,9 +1,14 @@
 
 // const BASE_URL: string= import.meta.env.VITE_API_BASE_URL;
 
+export interface AddBooking {
+    name: string,
+    phoneNumber: string;
+}
+
 export const bookingService = {
 
-    async sendFormData(formData: FormData){
+    async sendFormData(formData: AddBooking){
         const response = await fetch('http://localhost:8080/api/booking', { 
             method: 'POST',
             headers: {
