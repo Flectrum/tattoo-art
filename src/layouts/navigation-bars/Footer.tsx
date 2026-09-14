@@ -1,12 +1,14 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Email } from "../../assets/svg/Email";
 import { Instagram } from "../../assets/svg/Instagram";
 import { Telegram } from "../../assets/svg/Telegram";
-import { navItems } from "./components/NavItems";
+import { getNavItems } from "./components/NavItems";
+import { useLanguage } from "../../i18n/useLanguages";
 
 export const Footer = () => {
-  const { lang } = useParams();
   const year = new Date().getFullYear();
+  const { lang, t } = useLanguage();
+  const navItems = getNavItems(lang);
 
   return (
     <footer className="section-max-w section-padding py-10 z-30 relative page-surface border-t-1 border-white/10">
@@ -30,7 +32,7 @@ export const Footer = () => {
             </a>
           </div>
           <div className="mt-2 whitespace-nowrap">
-            © {year} Beka Gokadze. All rights reserved.
+            © {year} {t.footer.allRightsReserved}
           </div>
         </div>
         <div className="mt-3 ">

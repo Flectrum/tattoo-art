@@ -1,10 +1,14 @@
 import { Logo } from "../../assets/svg/Logo";
+import { useLanguage } from "../../i18n/useLanguages";
 import { NavbarDesktop } from "./components/NavbarDesktop";
 import { NavbarMobile } from "./components/NavbarMobile";
-import { navItems } from "./components/NavItems";
+import { getNavItems } from "./components/NavItems";
 import { NavLink } from "react-router-dom";
 
 export const Navbar = () => {
+  const { lang } = useLanguage();
+  const navItems = getNavItems(lang);
+
   return (
     <header className="sticky top-0 z-40 backdrop-blur-lg border-b-2 border-b-red-900">
       <nav className="flex h-18 items-center justify-between gap-10 px-5 md:px-0 md:container md:mx-auto">

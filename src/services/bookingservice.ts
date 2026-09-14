@@ -9,7 +9,7 @@ export interface AddBooking {
 export const bookingService = {
 
     async sendFormData(formData: AddBooking){
-        const response = await fetch('http://localhost:8080/api/booking', { 
+        const response = await fetch('https://long-suns-fix.loca.lt/api/booking', { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

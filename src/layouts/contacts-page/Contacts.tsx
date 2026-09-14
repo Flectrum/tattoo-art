@@ -3,13 +3,16 @@ import { GoogleMapTag } from "../../assets/svg/GoogleMapTag";
 import { Instagram } from "../../assets/svg/Instagram";
 import { Phone } from "../../assets/svg/Phone";
 import { Telegram } from "../../assets/svg/Telegram";
+import { useLanguage } from "../../i18n/useLanguages";
 
 export const Contacts = () => {
+  const { t } = useLanguage();
+
   return (
     <>
       <div className="relative  px-5 md:px-0 md:container md:mx-auto py-10">
-        <h1 className="text-white text-3xl font-bold">Contacts</h1>
-        <p className="mt-2 text-muted">Get in touch</p>
+        <h1 className="text-white text-3xl font-bold">{t.contacts.h1}</h1>
+        <p className="mt-2 text-muted">{t.contacts.contactMe}</p>
         <div className="mt-10 grid gap-12 lg:grid-cols-2">
           <div className="space-y-6 text-white">
             <a
@@ -18,7 +21,7 @@ export const Contacts = () => {
             >
               <Telegram className="w-6" />
               <div>
-                <p className="text-muted">Telegram</p>
+                <p className="text-muted">{t.contacts.telegram}</p>
                 <p className="font-bold">@GoQa123</p>
               </div>
             </a>
@@ -28,7 +31,7 @@ export const Contacts = () => {
             >
               <Instagram className="w-6" />
               <div>
-                <p className="text-muted">Instagram</p>
+                <p className="text-muted">{t.contacts.instagram}</p>
                 <p className="font-bold">@beqa_tattoo_art</p>
               </div>
             </a>
@@ -38,15 +41,15 @@ export const Contacts = () => {
             >
               <Phone className="w-6" />
               <div>
-                <p className="text-muted">Phone</p>
+                <p className="text-muted">{t.contacts.phoneNumber}</p>
                 <p className="font-bold">+372 55562148</p>
               </div>
             </a>{" "}
             <div className="flex gap-3 border border-[#484747] w-full md:w-2/3 bg-[#141414] hover:bg-[#353434] rounded-md p-2">
               <Clock className="w-6" />
               <div>
-                <p className="text-muted">Working hours</p>
-                <p className="font-bold">Tue-Sun 10:00-19:00</p>
+                <p className="text-muted">{t.contacts.workingHours}</p>
+                <p className="font-bold">{t.contacts.workingHoursDetails}</p>
               </div>
             </div>
           </div>
@@ -74,7 +77,9 @@ export const Contacts = () => {
                 href="https://www.google.com/maps/place/?q=place_id:ChIJW0sQoGUlpkIRwHRt6ZUAa_c"
                 className="text-red-600"
               >
-                <span className="hover:underline"> Open in Google Maps</span>
+                <span className="hover:underline">
+                  {t.contacts.openInGoogleMaps}
+                </span>
               </a>
             </div>
           </div>

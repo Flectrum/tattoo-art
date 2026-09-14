@@ -55,6 +55,29 @@ booking:{
     preferredStyle:"Eelistatud stiil",
     prefferedDate:"Eelistatud kuupäev",
     optional:"Valikuline — täpsustame hiljem",
-    back:"Tagasi"
+    back:"Tagasi",
+    chooseYourStyle:"Vali stiil (valikuline)",
+    styles:{
+        1:"Blackwork",
+        2:"Geomeetriline",
+        3:"Fine Line",
+        4:"Realism",
+        5:"Ornamental",
+        6:"Trash Polka",
+        7:"Akvarell"
+    }
 },
+contacts: {
+ h1:"Kontaktid",
+ contactMe:"Võta ühendust",
+ telegram:"Telegram",
+ instagram:"Instagram",
+ phoneNumber:"Telefon",
+ workingHours:"Tööaeg",
+ workingHoursDetails:"T–P 10:00–19:00",
+ openInGoogleMaps:"Ava Google Mapsis"
+},
+footer: {
+    allRightsReserved:"Beka Gokadze. Kõik õigused kaitstud."
+}
 }

@@ -54,6 +54,29 @@ booking:{
     preferredStyle:"Предпочтительный стиль",
     prefferedDate:"Предпочтительная дата",
     optional:"Необязательно — уточним позже",
-    back:"Назад"
+    back:"Назад",
+    chooseYourStyle:"Выбери стиль (необязательно)",
+    styles:{
+        1:"Blackwork",
+        2:"Геометрия",
+        3:"Fine Line",
+        4:"Реализм",
+        5:"Орнаментал",
+        6:"Trash Polka",
+        7:"Акварель"
+    }
 },
+contacts: {
+ h1:"Контакты",
+ contactMe:"Свяжись со мной",
+ telegram:"Telegram",
+ instagram:"Instagram",
+ phoneNumber:"Телефон",
+ workingHours:"Часы работы",
+ workingHoursDetails:"Вт–Вс 10:00–19:00",
+ openInGoogleMaps:"Открыть в Google Maps"
+},
+footer: {
+    allRightsReserved:"Beka Gokadze. Все права защищены."
+}
 }

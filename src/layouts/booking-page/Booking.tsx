@@ -10,6 +10,8 @@ import type { Errors } from "../../models/FormErrors";
 import { FormButton } from "./components/FormButton";
 import { useLanguage } from "../../i18n/useLanguages";
 import { bookingService } from "../../services/bookingservice";
+import { GoDown } from "../../assets/svg/GoDown";
+import { BackButton } from "./components/BackButton";
 
 const contactMethods: ContactMethod[] = [
   {
@@ -42,20 +44,20 @@ const contactMethods: ContactMethod[] = [
   },
 ];
 
-const styles = [
-  "Blackwork",
-  "Geometric",
-  "Fineline",
-  "Realism",
-  "Ornamental",
-  "Trash-polka",
-  "Watercolor",
-];
-
 export const Booking = () => {
   const { t } = useLanguage();
   const [step, setStep] = useState(1);
   const { lang } = useParams();
+
+  const styles = [
+    t.booking.styles[1],
+    t.booking.styles[2],
+    t.booking.styles[3],
+    t.booking.styles[4],
+    t.booking.styles[5],
+    t.booking.styles[6],
+    t.booking.styles[7],
+  ];
 
   const todayDate = new Date().toISOString().split("T")[0];
 
@@ -131,8 +133,6 @@ export const Booking = () => {
     if (Object.keys(errors).length === 0) {
       setStep(step + 1);
     }
-
-    console.log(formData.style);
   };
 
   return (
@@ -270,7 +270,7 @@ export const Booking = () => {
                   hidden
                   className="relative bg-[#141414]"
                 >
-                  Choose your option...
+                  {t.booking.chooseYourStyle}
                 </option>
                 {styles.map((style, index) => (
                   <option
@@ -294,15 +294,10 @@ export const Booking = () => {
               />
               <p className="mt-1 text-muted">{t.booking.optional}</p>
               <div className="flex justify-between">
-                <button
-                  type="button"
-                  className="mt-10 h-8 rounded-lg  hover:bg-[#2a2a2a]"
+                <BackButton
+                  label={t.booking.back}
                   onClick={() => setStep(step - 1)}
-                >
-                  <span className="mx-6 font-semibold text-xl">
-                    {t.booking.back}{" "}
-                  </span>
-                </button>
+                />
                 <FormButton label={t.booking.next} onClick={handleNext} />
               </div>
             </div>
@@ -353,13 +348,10 @@ export const Booking = () => {
                 </dl>
               </div>
               <div className="flex justify-between">
-                <button
-                  type="button"
-                  className="mt-10 h-8 rounded-lg  hover:bg-[#2a2a2a]"
+                <BackButton
+                  label={t.booking.back}
                   onClick={() => setStep(step - 1)}
-                >
-                  <span className="mx-6 font-semibold text-xl">Back </span>
-                </button>
+                />
                 <FormButton label="Confirm" onClick={() => handleSubmit()} />
               </div>
             </div>

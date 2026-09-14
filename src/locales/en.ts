@@ -54,7 +54,29 @@ booking:{
     preferredStyle:"Preferred style",
     prefferedDate:"Preferred date",
     optional:"Optional — we'll confirm later",
-    back:"Back"
-
+    back:"Back",
+    chooseYourStyle:"Choose a style (optional)",
+    styles:{
+        1:"Blackwork",
+        2:"Geometric",
+        3:"Fine Line",
+        4:"Realism",
+        5:"Ornamental",
+        6:"Trash Polka",
+        7:"Watercolor"
+    }
 },
+contacts: {
+ h1:"Contacts",
+ contactMe:"Get in touch",
+ telegram:"Telegram",
+ instagram:"Instagram",
+ phoneNumber:"Phone",
+ workingHours:"Working hours",
+ workingHoursDetails:"Tue–Sun 10:00–19:00",
+ openInGoogleMaps:"Open in Google Maps"
+},
+footer: {
+    allRightsReserved:"Beka Gokadze. All rights reserved."
+}
 } as const;
