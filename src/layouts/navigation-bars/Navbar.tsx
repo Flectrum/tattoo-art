@@ -22,7 +22,6 @@ export const Navbar = () => {
               Tattoo Art
             </div>
           </NavLink>
-          ={" "}
         </div>
         <div className="flex items-center px-5">
           {/* Mobile */}
