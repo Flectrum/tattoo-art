@@ -483,38 +483,4 @@ Planned improvements:
 * HTTPS
 * Automated deployment
 
-## Deployment
 
-The frontend can be deployed to a static hosting platform such as Vercel.
-
-For a production deployment:
-
-```bash
-npm run build
-```
-
-The generated files are placed in:
-
-```text
-dist/
-```
-
-When a backend is introduced, the production architecture may look like:
-
-```text
-User
-  ↓
-Nginx
-  ↓
-React frontend
-  ↓
-Spring Boot REST API
-  ↓
-Database
-```
-
-External services such as Telegram and Google Calendar will be accessed by the backend.
-
-## License
-
-This project is a personal project. All rights reserved.
