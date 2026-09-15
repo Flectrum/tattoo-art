@@ -40,7 +40,7 @@ export const NavbarMobile = (props: { navItems: NavItem[] }) => {
                   end={item.href === ""}
                   onClick={() => setIsNavOpen(false)}
                 >
-                  <li className="section-max-w font-semibold hover:bg-gray-500/90 px-6 py-4">
+                  <li className="flex flex-wrap section-max-w font-semibold hover:bg-gray-500/90 px-6 py-4">
                     {item.label}
                   </li>
                 </NavLink>
