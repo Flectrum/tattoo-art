@@ -16,16 +16,16 @@ export const Hero = () => {
           {t.hero.about}
         </p>
 
-        <div className="flex align-center justify-center gap-3  text-white mt-10">
+        <div className="flex items-center justify-center gap-3  text-white mt-10">
           <Link
             to={"booking"}
-            className=" rounded-xl bg-red-500 hover:bg-red-400 p-5"
+            className=" rounded-xl bg-red-500 trasnsition-all hover:bg-red-400 px-5 py-3"
           >
             {t.hero.bookASessionBtn}
           </Link>
           <Link
             to={"portfolio"}
-            className="border-1 border-black rounded-xl hover:border-red-500 hover:text-red-500 p-5"
+            className="border-1 border-black rounded-xl trasnsition-all hover:border-red-500 hover:text-red-500 px-5 py-3"
           >
             {t.hero.viewPortfolioBtn}
           </Link>

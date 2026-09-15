@@ -31,12 +31,12 @@ export const Footer = () => {
               <Email className="w-7 hover:text-red-600 transition-colors" />
             </a>
           </div>
-          <div className="mt-2 whitespace-nowrap">
+          <div className="mt-2 whitespace-nowrap text-sm">
             © {year} {t.footer.allRightsReserved}
           </div>
         </div>
         <div className="mt-3 ">
-          <ul className="flex flex-wrap items-center justify-center gap-5 text-muted">
+          <ul className="flex flex-wrap text-sm items-center justify-center gap-5 text-muted">
             {navItems.map(({ label, href }) => (
               <li key={label} className="block hover:text-white">
                 <Link to={`/${lang}/${href}`}>{label}</Link>

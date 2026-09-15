@@ -11,7 +11,7 @@ export const NavbarDesktop = (props: { navItems: NavItem[] }) => {
         <li key={navItem.href}>
           <NavLink
             className={({ isActive }) =>
-              `inline-block font-medium hover:!text-white ${
+              `inline-block text-sm font-medium hover:!text-white ${
                 isActive ? "text-red-500" : "text-muted"
               }`
             }

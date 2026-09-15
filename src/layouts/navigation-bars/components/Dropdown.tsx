@@ -33,7 +33,7 @@ export const Dropdown = () => {
           onClick={() => setIsOpen(!isOpen)}
           className="inline-flex"
         >
-          <div className="flex gap-1 items-center text-muted font-semibold hover:!text-white tracking-wide">
+          <div className="flex text-sm gap-1 items-center text-muted font-semibold hover:!text-white tracking-wide">
             {lang?.toUpperCase()}
             <small
               className={`transition duration-150 ${
@@ -59,7 +59,7 @@ export const Dropdown = () => {
                 type="button"
                 key={item.lang}
                 onClick={() => changeLanguage(item.lang)}
-                className={`block px-4 py-2 hover:bg-gray-500/20 w-full text-left ${
+                className={`block px-4 text-sm py-2 hover:bg-gray-500/20 w-full text-left ${
                   item.lang === lang
                     ? "text-red-500"
                     : "text-gray-400 hover:text-red-600"
