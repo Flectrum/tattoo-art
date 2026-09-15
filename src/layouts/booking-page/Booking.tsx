@@ -45,7 +45,7 @@ const contactMethods: ContactMethod[] = [
 
 export const Booking = () => {
   const { t } = useLanguage();
-  const [step, setStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(1);
   const { lang } = useParams();
 
   const styles = [
@@ -57,6 +57,8 @@ export const Booking = () => {
     t.booking.styles[6],
     t.booking.styles[7],
   ];
+
+  const steps = [1, 2, 3];
 
   const todayDate = new Date().toISOString().split("T")[0];
 
@@ -119,7 +121,7 @@ export const Booking = () => {
       errors.contact = t.booking.emptyFieldErr;
     }
 
-    if (step === 2) {
+    if (currentStep === 2) {
       if (!formData.idea.trim()) {
         errors.idea = t.booking.emptyFieldErr;
       } else if (formData.idea.length < 10) {
@@ -130,7 +132,7 @@ export const Booking = () => {
     setFormErrors(errors);
 
     if (Object.keys(errors).length === 0) {
-      setStep(step + 1);
+      setCurrentStep(currentStep + 1);
     }
   };
 
@@ -148,213 +150,245 @@ export const Booking = () => {
             {t.booking.contactMe}
           </Link>
         </p>
-        <form method="POST" className="flex w-full max-w-xl flex-col mt-1">
-          {step === 1 && (
-            <div className="flex flex-col mt-10">
-              <h2 className="flex  font-bold text-2xl">
-                {t.booking.yourDetails}
-              </h2>
-              <label className="mt-5">
-                {t.booking.name} <span className="text-red-800">*</span>
-              </label>
-              <input
-                className="relative bg-[#141414] mt-2 w-full min-w-0  rounded-lg px-2 md:px-5 py-2 border border-gray-600/80 "
-                autoFocus
-                type="text"
-                name="name"
-                onChange={handleChange}
-                value={formData.name}
-                placeholder={t.booking.yourName}
-              />
-              {formErrors.name && (
-                <p className="text-red-500 text-sm">{formErrors.name}</p>
-              )}
-              <label className="mt-2">
-                {t.booking.phoneNumber} <span className="text-red-800">*</span>
-              </label>
-              <input
-                className="relative mt-2 w-full min-w-0 bg-[#141414] rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
-                type="text"
-                name="phoneNumber"
-                onChange={handleChange}
-                value={formData.phoneNumber}
-                placeholder="+372 XXXX XXXX"
-              />
-              {formErrors.phoneNumber && (
-                <p className="text-red-500 text-sm">This field is required</p>
-              )}
-              <label className="mt-2">
-                {t.booking.whereDiscuss}
-                <span className="text-red-800">*</span>
-              </label>
-              <ul className="flex flex-wrap gap-3 mt-3">
-                {contactMethods.map((item, index) => (
-                  <li key={index}>
-                    <button
-                      type="button"
-                      value={formData.contactMethod?.name}
-                      onClick={() => handleContactMethod(item)}
-                      name="connectionType.name"
-                      className={`relative bg-[#141414] flex flex-wrap items-center rounded-lg border-1  
-                ${formData.contactMethod?.name === item.name ? "text-red-500 border-red-500" : "text-[#737373] border-[#737373] hover:text-white"}`}
-                    >
-                      <div className="mx-3 my-2 flex items-center gap-2">
-                        <div className="w-5">{item.svg}</div>
-                        {item.name}
-                      </div>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-              {formErrors.contactMethod && (
-                <p className="text-red-500 text-sm">
-                  {formErrors.contactMethod}
-                </p>
-              )}
-              {formData.contactMethod && (
-                <>
-                  <label className="mt-2">
-                    {formData.contactMethod?.label}{" "}
-                    <span className="text-red-800">*</span>
-                  </label>
-                  <input
-                    className="relative bg-[#141414] mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
-                    type="text"
-                    required
-                    onChange={handleChange}
-                    value={formData.contact}
-                    name="contact"
-                    placeholder={formData.contactMethod?.placeholder}
-                  />
-                  {formErrors.contact && (
-                    <p className="text-red-500 text-sm">{formErrors.contact}</p>
-                  )}
-                </>
-              )}
-              <div className="flex justify-end">
-                <FormButton label={t.booking.next} onClick={handleNext} />
-              </div>
-            </div>
-          )}
-          {step === 2 && (
-            <div className="flex flex-col mt-10">
-              <h2 className="flex  font-bold text-2xl">
-                {t.booking.yourTattooIdea}
-              </h2>
-              <label className="mt-5">
-                {t.booking.describeIdea}
-                <span className="text-red-800">*</span>
-              </label>
-              <textarea
-                className="relative bg-[#141414] mt-2 w-full min-w-0 rounded-lg px-1 py-2 border-1 border-gray-600/80"
-                rows={4}
-                name="idea"
-                value={formData.idea}
-                onChange={handleChange}
-                placeholder={t.booking.whatDoYouWant}
-              />
-              {formErrors.idea && (
-                <p className="text-red-500 text-sm">{formErrors.idea}</p>
-              )}
-              <label className="mt-2">{t.booking.preferredStyle}</label>
-              <select
-                defaultValue={"default"}
-                className="relative bg-[#141414] text-white border border-gray-600 rounded-lg px-3 py-2"
-                name="style"
-                onChange={handleChange}
-              >
-                <option
-                  value={"default"}
-                  disabled
-                  hidden
-                  className="relative bg-[#141414]"
-                >
-                  {t.booking.chooseYourStyle}
-                </option>
-                {styles.map((style, index) => (
-                  <option
-                    key={index}
-                    value={style}
-                    className="relative bg-[#141414] text-white"
-                  >
-                    {style}
-                  </option>
-                ))}
-              </select>
 
-              <label className="mt-2">{t.booking.prefferedDate}</label>
-              <input
-                className="relative bg-[#141414] mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
-                type="date"
-                required
-                onChange={handleChange}
-                name="date"
-                min={todayDate}
-              />
-              <p className="mt-1 text-muted">{t.booking.optional}</p>
-              <div className="flex justify-between">
-                <BackButton
-                  label={t.booking.back}
-                  onClick={() => setStep(step - 1)}
+        <form method="POST" className="flex w-full max-w-xl flex-col mt-1">
+          <div className="flex mt-5 text-sm gap-4">
+            {steps.map((step, index) => (
+              <div key={index}>
+                {step >= currentStep ? (
+                  <div
+                    className={`relative flex justify-center items-center w-6 h-6 font-semibold rounded-full ${step <= currentStep ? "bg-red-800 text-white" : "bg-[#5a5757] text-muted"}`}
+                  >
+                    {step}
+                  </div>
+                ) : (
+                  <span className="flex justify-center items-center w-6 h-6 rounded-full">
+                    ok
+                  </span>
+                )}
+              </div>
+            ))}
+            <span className="text-sm text-muted">
+              Step {currentStep} of {steps.length}
+            </span>
+          </div>
+          <div className="translate-y-0 opacity-100 transition-all duration-400 starting:translate-x-8 starting:opacity-0">
+            {currentStep === 1 && (
+              <div className="flex flex-col mt-3">
+                <h2 className="flex  font-bold text-2xl">
+                  {t.booking.yourDetails}
+                </h2>
+                <label className="mt-5">
+                  {t.booking.name} <span className="text-red-800">*</span>
+                </label>
+                <input
+                  className="relative bg-[#141414] mt-2 w-full min-w-0  rounded-lg px-2 md:px-5 py-2 border border-gray-600/80 "
+                  autoFocus
+                  type="text"
+                  name="name"
+                  onChange={handleChange}
+                  value={formData.name}
+                  placeholder={t.booking.yourName}
                 />
-                <FormButton label={t.booking.next} onClick={handleNext} />
-              </div>
-            </div>
-          )}
-          {step === 3 && (
-            <div className="flex flex-col mt-10">
-              <h2 className="flex  font-bold text-2xl">Review Your Request</h2>
-              <div className="relative border bg-[#141414] border-[#2a2a2a] rounded-lg mt-5">
-                <p className="border-b border-[#2a2a2a] px-4 py-3 font-medium uppercase tracking-wider text-muted">
-                  {" "}
-                  Your request
-                </p>
-                <dl className="divide-y divide-[#2a2a2a] ">
-                  <div className="flex gap-4 px-4 py-3">
-                    <dt className="w-28 text-muted">Name</dt>
-                    <dd className="flex-1 break-words text">{formData.name}</dd>
-                  </div>
-                  <div className="flex gap-4 px-4 py-3">
-                    <dt className="w-28 text-muted">Phone</dt>
-                    <dd className="flex-1 break-words text">
-                      {formData.phoneNumber}
-                    </dd>
-                  </div>
-                  <div className="flex gap-4 px-4 py-3">
-                    <dt className="w-28 text-muted">Discuss via</dt>
-                    <dd className="flex-1 break-words text">
-                      {formData.contactMethod?.name} — {formData.contact}
-                    </dd>
-                  </div>
-                  <div className="flex gap-4 px-4 py-3">
-                    <dt className="w-28 text-muted">Idea</dt>
-                    <dd className="flex-1 break-words text">{formData.idea}</dd>
-                  </div>
-                  <div className="flex gap-4 px-4 py-3">
-                    <dt className="w-28 text-muted">Style</dt>
-                    <dd className="flex-1 break-words text">
-                      {formData.style ? formData.style : "To be confirmed"}
-                    </dd>
-                  </div>
-                  <div className="flex gap-4 px-4 py-3">
-                    <dt className="w-28 text-muted">Date</dt>
-                    <dd className="flex-1 break-words text">
-                      {formData.date
-                        ? formData.date.toString()
-                        : "To be confirmed"}
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-              <div className="flex justify-between">
-                <BackButton
-                  label={t.booking.back}
-                  onClick={() => setStep(step - 1)}
+                {formErrors.name && (
+                  <p className="text-red-500 text-sm">{formErrors.name}</p>
+                )}
+                <label className="mt-2">
+                  {t.booking.phoneNumber}{" "}
+                  <span className="text-red-800">*</span>
+                </label>
+                <input
+                  className="relative mt-2 w-full min-w-0 bg-[#141414] rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
+                  type="text"
+                  name="phoneNumber"
+                  onChange={handleChange}
+                  value={formData.phoneNumber}
+                  placeholder="+372 XXXX XXXX"
                 />
-                <FormButton label="Confirm" onClick={() => handleSubmit()} />
+                {formErrors.phoneNumber && (
+                  <p className="text-red-500 text-sm">This field is required</p>
+                )}
+                <label className="mt-2">
+                  {t.booking.whereDiscuss}
+                  <span className="text-red-800">*</span>
+                </label>
+                <ul className="flex flex-wrap gap-3 mt-3">
+                  {contactMethods.map((item, index) => (
+                    <li key={index}>
+                      <button
+                        type="button"
+                        value={formData.contactMethod?.name}
+                        onClick={() => handleContactMethod(item)}
+                        name="connectionType.name"
+                        className={`relative bg-[#141414] flex flex-wrap items-center rounded-lg border-1  
+                ${formData.contactMethod?.name === item.name ? "text-red-500 border-red-500" : "text-[#737373] border-[#737373] hover:text-white"}`}
+                      >
+                        <div className="mx-3 my-2 flex items-center gap-2">
+                          <div className="w-5">{item.svg}</div>
+                          {item.name}
+                        </div>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+                {formErrors.contactMethod && (
+                  <p className="text-red-500 text-sm">
+                    {formErrors.contactMethod}
+                  </p>
+                )}
+                {formData.contactMethod && (
+                  <>
+                    <label className="mt-2">
+                      {formData.contactMethod?.label}{" "}
+                      <span className="text-red-800">*</span>
+                    </label>
+                    <input
+                      className="relative bg-[#141414] mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
+                      type="text"
+                      required
+                      onChange={handleChange}
+                      value={formData.contact}
+                      name="contact"
+                      placeholder={formData.contactMethod?.placeholder}
+                    />
+                    {formErrors.contact && (
+                      <p className="text-red-500 text-sm">
+                        {formErrors.contact}
+                      </p>
+                    )}
+                  </>
+                )}
+                <div className="flex justify-end">
+                  <FormButton label={t.booking.next} onClick={handleNext} />
+                </div>
               </div>
-            </div>
-          )}
+            )}
+            {currentStep === 2 && (
+              <div className="flex flex-col mt-10">
+                <h2 className="flex  font-bold text-2xl">
+                  {t.booking.yourTattooIdea}
+                </h2>
+                <label className="mt-5">
+                  {t.booking.describeIdea}
+                  <span className="text-red-800">*</span>
+                </label>
+                <textarea
+                  className="relative bg-[#141414] mt-2 w-full min-w-0 rounded-lg px-1 py-2 border-1 border-gray-600/80"
+                  rows={4}
+                  name="idea"
+                  value={formData.idea}
+                  onChange={handleChange}
+                  placeholder={t.booking.whatDoYouWant}
+                />
+                {formErrors.idea && (
+                  <p className="text-red-500 text-sm">{formErrors.idea}</p>
+                )}
+                <label className="mt-2">{t.booking.preferredStyle}</label>
+                <select
+                  defaultValue={"default"}
+                  className="relative bg-[#141414] text-white border border-gray-600 rounded-lg px-3 py-2"
+                  name="style"
+                  onChange={handleChange}
+                >
+                  <option
+                    value={"default"}
+                    disabled
+                    hidden
+                    className="relative bg-[#141414]"
+                  >
+                    {t.booking.chooseYourStyle}
+                  </option>
+                  {styles.map((style, index) => (
+                    <option
+                      key={index}
+                      value={style}
+                      className="relative bg-[#141414] text-white"
+                    >
+                      {style}
+                    </option>
+                  ))}
+                </select>
+
+                <label className="mt-2">{t.booking.prefferedDate}</label>
+                <input
+                  className="relative bg-[#141414] mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
+                  type="date"
+                  required
+                  onChange={handleChange}
+                  name="date"
+                  min={todayDate}
+                />
+                <p className="mt-1 text-muted">{t.booking.optional}</p>
+                <div className="flex justify-between">
+                  <BackButton
+                    label={t.booking.back}
+                    onClick={() => setCurrentStep(currentStep - 1)}
+                  />
+                  <FormButton label={t.booking.next} onClick={handleNext} />
+                </div>
+              </div>
+            )}
+            {currentStep === 3 && (
+              <div className="flex flex-col mt-10">
+                <h2 className="flex  font-bold text-2xl">
+                  Review Your Request
+                </h2>
+                <div className="relative border bg-[#141414] border-[#2a2a2a] rounded-lg mt-5">
+                  <p className="border-b border-[#2a2a2a] px-4 py-3 font-medium uppercase tracking-wider text-muted">
+                    {" "}
+                    Your request
+                  </p>
+                  <dl className="divide-y divide-[#2a2a2a] ">
+                    <div className="flex gap-4 px-4 py-3">
+                      <dt className="w-28 text-muted">Name</dt>
+                      <dd className="flex-1 break-words text">
+                        {formData.name}
+                      </dd>
+                    </div>
+                    <div className="flex gap-4 px-4 py-3">
+                      <dt className="w-28 text-muted">Phone</dt>
+                      <dd className="flex-1 break-words text">
+                        {formData.phoneNumber}
+                      </dd>
+                    </div>
+                    <div className="flex gap-4 px-4 py-3">
+                      <dt className="w-28 text-muted">Discuss via</dt>
+                      <dd className="flex-1 break-words text">
+                        {formData.contactMethod?.name} — {formData.contact}
+                      </dd>
+                    </div>
+                    <div className="flex gap-4 px-4 py-3">
+                      <dt className="w-28 text-muted">Idea</dt>
+                      <dd className="flex-1 break-words text">
+                        {formData.idea}
+                      </dd>
+                    </div>
+                    <div className="flex gap-4 px-4 py-3">
+                      <dt className="w-28 text-muted">Style</dt>
+                      <dd className="flex-1 break-words text">
+                        {formData.style ? formData.style : "To be confirmed"}
+                      </dd>
+                    </div>
+                    <div className="flex gap-4 px-4 py-3">
+                      <dt className="w-28 text-muted">Date</dt>
+                      <dd className="flex-1 break-words text">
+                        {formData.date
+                          ? formData.date.toString()
+                          : "To be confirmed"}
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+                <div className="flex justify-between">
+                  <BackButton
+                    label={t.booking.back}
+                    onClick={() => setCurrentStep(currentStep - 1)}
+                  />
+                  <FormButton label="Confirm" onClick={() => handleSubmit()} />
+                </div>
+              </div>
+            )}
+          </div>
         </form>
       </div>
     </>
