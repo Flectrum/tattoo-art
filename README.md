@@ -76,48 +76,6 @@ English is used as the default language.
 
 Unsupported language codes should result in the application's `PageNotFound` page.
 
-## Project Structure
-
-A simplified project structure:
-
-```text
-src/
-├── assets/
-│   ├── background.mp4
-│   └── logo.svg
-│
-├── components/
-│   ├── Navbar/
-│   ├── Footer/
-│   └── ...
-│
-├── context/
-│   └── LanguageContext.tsx
-│
-├── hooks/
-│   └── useClickOutside.ts
-│
-├── layouts/
-│   └── Layout.tsx
-│
-├── pages/
-│   ├── Homepage/
-│   ├── Portfolio/
-│   ├── About/
-│   ├── Booking/
-│   └── PageNotFound/
-│
-├── translations/
-│   ├── en.ts
-│   ├── et.ts
-│   ├── ru.ts
-│   └── es.ts
-│
-├── App.tsx
-└── main.tsx
-```
-
-The exact folder structure may change as the application develops.
 
 ## Installation
 
