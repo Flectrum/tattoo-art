@@ -286,7 +286,7 @@ export const Booking = () => {
                 <label className="mt-2">{t.booking.preferredStyle}</label>
                 <select
                   defaultValue={"default"}
-                  className="relative bg-[#141414] text-white border border-gray-600 rounded-lg px-3 py-2"
+                  className="relative bg-[#141414] text-white border outline-none border-1 focus:border-red-800 border-gray-600 rounded-lg px-3 py-2"
                   name="style"
                   onChange={handleChange}
                 >
