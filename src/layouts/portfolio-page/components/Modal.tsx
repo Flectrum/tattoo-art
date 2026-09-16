@@ -97,14 +97,14 @@ export default function Modal({
         className="absolute rounded-full p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-800 transition-colors right-0 rotate-270"
         onClick={showPrev}
       >
-        <GoDown className="m-2 w-5" />
+        <GoDown className="m-2 h-5 w-5" />
       </button>
 
       <button
         className="absolute rounded-full p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-500 transition-colors left-0 rotate-90"
         onClick={showNext}
       >
-        <GoDown className="m-2 w-5" />
+        <GoDown className="m-2 h-5 w-5" />
       </button>
     </div>
   );
