@@ -6,7 +6,7 @@ export const NavbarDesktop = (props: { navItems: NavItem[] }) => {
   const { lang } = useParams();
 
   return (
-    <ul className="hidden text-muted md:flex lg:gap-6 md:gap-2">
+    <ul className="hidden text-muted md:flex md:gap-6 ">
       {props.navItems.map((navItem) => (
         <li key={navItem.href}>
           <NavLink

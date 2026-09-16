@@ -82,7 +82,7 @@ export default function Modal({
 
       <button
         onClick={onClose}
-        className="absolute rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-500 transition-colors top-5 right-5"
+        className="absolute rounded-full h-7 w-7 text-gray-400 hover:bg-gray-100 hover:text-gray-500 transition-colors top-5 right-5"
       >
         ✕
       </button>

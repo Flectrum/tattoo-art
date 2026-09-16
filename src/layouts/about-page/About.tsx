@@ -17,54 +17,64 @@ export const About = () => {
   ];
   return (
     <>
-      <div className="relative px-5 md:px-0 container md:mx-auto lg:px-20">
-        <div className="relative block md:flex md:flex-row md:justify-between my-10 ">
-          <div className="w-full md:mr-50 object-contain">
-            <img src={artist} className="rounded"></img>
-          </div>
-          <div className="right-part ">
-            <p className="text-red-800 text-bold uppercase">{t.about.about}</p>
-            <h1 className="font-bold text-white text-3xl mt-3">
-              {t.about.name}
-            </h1>
-            <p className="text-muted mt-10 text-xl">{t.about.description}</p>
-            <div className="flex  gap-3 mt-10">
-              <div className="block border-r-1 border-white pr-5">
-                <p className="text-bold text-white">{t.about.years}</p>
-                <p className="text-muted">{t.about.experience}</p>
+      {/* <div className="relative px-5 md:px-0 container md:mx-auto lg:px-20">
+        <div className="relative lg:flex md:justify-between my-20 ">
+          <div className="w-full aspect-[3/4] lg:mr-50 object-contain"> */}
+      <section className="section-padding py-16 px-10 lg:px-40">
+        <div className="section-max-w">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div className="relative aspect-[3/4] w-full max-w-sm overflow-hidden rounded-lg bg-surface-2 mx-auto lg:mx-0">
+              <img src={artist} alt="Beka Gokadze" className="rounded"></img>
+            </div>
+            {/* </div> */}
+            <div className="space-y-6 ">
+              <p className="text-red-800 text-bold uppercase">
+                {t.about.about}
+              </p>
+              <h1 className="font-bold text-white text-3xl">{t.about.name}</h1>
+              <p className="text-muted text-lg">{t.about.description}</p>
+              <div className="flex  gap-3">
+                <div className="block border-r-1 border-white pr-5">
+                  <p className="text-bold text-white">{t.about.years}</p>
+                  <p className="text-muted">{t.about.experience}</p>
+                </div>
+                <div className="block">
+                  <p className="text-white text-bold">
+                    {" "}
+                    {t.about.numberOfWorks}{" "}
+                  </p>
+                  <p className="text-muted">{t.about.worksCompleted}</p>
+                </div>
               </div>
-              <div className="block">
-                <p className="text-white text-bold">
-                  {" "}
-                  {t.about.numberOfWorks}{" "}
+              <div>
+                <p className="text-muted uppercase text-semibold">
+                  {t.about.styles}
                 </p>
-                <p className="text-muted">{t.about.worksCompleted}</p>
+                <div className="text-muted flex flex-wrap gap-1 gap-3 mt-2">
+                  {styles.map((text: string, index: number) => (
+                    <span
+                      key={index}
+                      className=" px-2 border-1 border-[#595858] text-sm rounded-lg flex justify-center items-center md:rounded-full"
+                    >
+                      {text}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-            <p className="text-muted mt-5 uppercase text-semibold">
-              {t.about.styles}
-            </p>
-            <div className="text-muted flex flex-wrap gap-1 gap-3 mt-2">
-              {styles.map((text: string, index: number) => (
-                <span
-                  key={index}
-                  className=" px-2 border-1 border-[#595858] rounded-lg flex justify-center items-center md:rounded-full"
+              <div className="pt-5">
+                <Link
+                  to={`/${lang}/booking`}
+                  className="text-white border-2 border-red-800 p-3 rounded-xl"
                 >
-                  {text}
-                </span>
-              ))}
-            </div>
-            <div className="mt-10">
-              <Link
-                to={`/${lang}/booking`}
-                className="text-white mt-10 border-2 border-red-800 p-4 rounded-xl"
-              >
-                {t.about.bookAConsultation}
-              </Link>
+                  {t.about.bookAConsultation}
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+      {/* </div>
+      </div> */}
     </>
   );
 };

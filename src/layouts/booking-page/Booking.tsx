@@ -11,6 +11,7 @@ import { FormButton } from "./components/FormButton";
 import { useLanguage } from "../../i18n/useLanguages";
 import { bookingService } from "../../services/bookingservice";
 import { BackButton } from "./components/BackButton";
+import { Ok } from "../../assets/svg/Ok";
 
 const contactMethods: ContactMethod[] = [
   {
@@ -157,13 +158,13 @@ export const Booking = () => {
               <div key={index}>
                 {step >= currentStep ? (
                   <div
-                    className={`relative flex justify-center items-center w-6 h-6 font-semibold rounded-full ${step <= currentStep ? "bg-red-800 text-white" : "bg-[#5a5757] text-muted"}`}
+                    className={`relative flex justify-center items-center text-xs w-6 h-6 font-semibold rounded-full ${step <= currentStep ? "bg-red-800 text-white" : "bg-[#5a5757] text-muted"}`}
                   >
                     {step}
                   </div>
                 ) : (
                   <span className="flex justify-center items-center w-6 h-6 rounded-full text-red-800">
-                    ok
+                    <Ok className="w-8 h-8" />
                   </span>
                 )}
               </div>

@@ -26,7 +26,7 @@ export const Dropdown = () => {
   };
 
   return (
-    <div className="relative inline-block " ref={dropdownRef}>
+    <div className="relative inline-block" ref={dropdownRef}>
       <div>
         <button
           type="button"
@@ -52,7 +52,7 @@ export const Dropdown = () => {
         >
           <div
             role="none"
-            className="py-1 rounded-md border border-border border-gray-100/20 py-1 shadow-lg  bg-black"
+            className="py-1 rounded-md border border-border border-gray-100/20 py-1 shadow-lg bg-black"
           >
             {supportedLanguages.map((item) => (
               <button

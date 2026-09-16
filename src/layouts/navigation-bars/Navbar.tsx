@@ -11,13 +11,13 @@ export const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-40 backdrop-blur-lg border-b-2 border-b-red-900">
-      <nav className="flex h-15 items-center justify-between gap-10 md:px-0 md:container lg:px-20">
+      <nav className="flex h-15 items-center justify-between gap-10 md:px-5 lg:px-20">
         <div className="flex" aria-label="Tattoo Art">
           <NavLink
             className="font-semibold text-nowrap uppercase tracking-widest"
             to="/"
           >
-            <div className="flex items-center justify-between gap-3 transition-colors text-white hover:text-red-800 pl-5">
+            <div className="flex items-center justify-between  transition-colors text-white hover:text-red-800 pl-5">
               <Logo className="w-10 h-10" />
               Tattoo Art
             </div>
