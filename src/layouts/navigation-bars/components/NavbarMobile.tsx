@@ -17,7 +17,7 @@ export const NavbarMobile = (props: { navItems: NavItem[] }) => {
     <>
       {isNavOpen ? (
         <div ref={dropdownRef}>
-          <div className="absolute z-60 top-0 right-0 w-4xs h-[100dvh] bg-black py-0.5 md:hidden">
+          <div className="absolute z-60 top-0 right-0 w-3xs h-[100dvh] bg-black py-0.5 md:hidden">
             <div className="flex h-18 text-gray-500 uppercase border-b-2 border-red-500/50 items-center justify-between font-semibold pl-6">
               <div className="">Menu</div>
               <button
