@@ -182,7 +182,7 @@ export const Booking = () => {
                   {t.booking.name} <span className="text-red-800">*</span>
                 </label>
                 <input
-                  className="relative bg-[#141414] mt-2 w-full min-w-0  rounded-lg px-2 md:px-5 py-2 border border-gray-600/80 "
+                  className="relative bg-[#141414] mt-2 w-full min-w-0  rounded-lg px-2 md:px-5 py-2 border border-gray-600/80 outline-none hover:border-red-800"
                   autoFocus
                   type="text"
                   name="name"
@@ -198,7 +198,7 @@ export const Booking = () => {
                   <span className="text-red-800">*</span>
                 </label>
                 <input
-                  className="relative mt-2 w-full min-w-0 bg-[#141414] rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
+                  className="relative mt-2 w-full min-w-0 bg-[#141414] rounded-lg px-2 md:px-5 py-2 border border-gray-600/80 outline-none hover:border-red-800"
                   type="text"
                   name="phoneNumber"
                   onChange={handleChange}
@@ -243,7 +243,7 @@ export const Booking = () => {
                       <span className="text-red-800">*</span>
                     </label>
                     <input
-                      className="relative bg-[#141414] mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
+                      className="relative bg-[#141414] mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border border-gray-600/80 outline-none hover:border-red-800"
                       type="text"
                       required
                       onChange={handleChange}
@@ -273,7 +273,7 @@ export const Booking = () => {
                   <span className="text-red-800">*</span>
                 </label>
                 <textarea
-                  className="relative bg-[#141414] mt-2 w-full min-w-0 rounded-lg px-1 py-2 border-1 border-gray-600/80"
+                  className="relative bg-[#141414] mt-2 w-full min-w-0 rounded-lg px-1 py-2 border border-gray-600/80 outline-none hover:border-red-800"
                   rows={4}
                   name="idea"
                   value={formData.idea}
@@ -311,9 +311,8 @@ export const Booking = () => {
 
                 <label className="mt-2">{t.booking.prefferedDate}</label>
                 <input
-                  className="relative bg-[#141414] mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border-1 border-gray-600/80"
+                  className="relative bg-[#141414] mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border border-gray-600/80 outline-none hover:border-red-800"
                   type="date"
-                  required
                   onChange={handleChange}
                   name="date"
                   min={todayDate}
