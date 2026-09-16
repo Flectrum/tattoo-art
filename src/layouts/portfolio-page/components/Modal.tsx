@@ -5,10 +5,10 @@ import type { Picture } from "./../Pictures";
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  title?: string; // Знак вопроса означает, что проп необязательный
+  title?: string;
   index: number;
   setIndex: React.Dispatch<React.SetStateAction<number | null>>;
-  pictures: Picture[]; // Тип для содержимого внутри компонента
+  pictures: Picture[];
 }
 
 export default function Modal({
