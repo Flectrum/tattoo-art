@@ -162,7 +162,7 @@ export const Booking = () => {
                     {step}
                   </div>
                 ) : (
-                  <span className="flex justify-center items-center w-6 h-6 rounded-full">
+                  <span className="flex justify-center items-center w-6 h-6 rounded-full text-red-800">
                     ok
                   </span>
                 )}
