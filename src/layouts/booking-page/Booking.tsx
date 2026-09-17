@@ -73,6 +73,11 @@ export const Booking = () => {
 
   const [formErrors, setFormErrors] = useState<Errors>({});
 
+  function getDate(date: Date) {
+    const splitDate = date.toString().split("-");
+    return splitDate[2] + "." + splitDate[1] + "." + splitDate[0];
+  }
+
   const handleSubmit = async () => {
     await bookingService.sendFormData({
       name: formData.name,
@@ -105,6 +110,17 @@ export const Booking = () => {
     }));
   };
 
+  function validatePhoneNumber(phoneNumber: string) {
+    if (
+      phoneNumber.split("")[0] !== "+" &&
+      isNaN(Number(phoneNumber.split("")[0]))
+    ) {
+      return true;
+    } else if (phoneNumber.length < 6) {
+      return true;
+    }
+  }
+
   const handleNext = () => {
     const errors: Errors = {};
 
@@ -113,6 +129,8 @@ export const Booking = () => {
     }
     if (!formData.phoneNumber.trim()) {
       errors.phoneNumber = t.booking.emptyFieldErr;
+    } else if (validatePhoneNumber(formData.phoneNumber)) {
+      errors.phoneNumber = "Invalid format";
     }
     if (!formData.contactMethod) {
       errors.contactMethod = t.booking.emptyFieldErr;
@@ -164,7 +182,7 @@ export const Booking = () => {
                   </div>
                 ) : (
                   <span className="flex justify-center items-center w-6 h-6 rounded-full text-red-800">
-                    <Ok className="w-8 h-8" />
+                    <Ok className="w-8 h-8 text-red-800" />
                   </span>
                 )}
               </div>
@@ -207,7 +225,9 @@ export const Booking = () => {
                   placeholder="+372 XXXX XXXX"
                 />
                 {formErrors.phoneNumber && (
-                  <p className="text-red-500 text-sm">This field is required</p>
+                  <p className="text-red-500 text-sm">
+                    {formErrors.phoneNumber}
+                  </p>
                 )}
                 <label className="mt-2">
                   {t.booking.whereDiscuss}
@@ -274,7 +294,7 @@ export const Booking = () => {
                   <span className="text-red-800">*</span>
                 </label>
                 <textarea
-                  className="relative bg-[#141414] mt-2 w-full min-w-0 rounded-lg px-1 py-2 border border-gray-600/80 outline-none hover:border-red-800"
+                  className="relative bg-[#141414] mt-2 w-full min-w-0 rounded-lg px-3 py-2 border border-gray-600/80 outline-none focus:border-red-800"
                   rows={4}
                   name="idea"
                   value={formData.idea}
@@ -373,7 +393,7 @@ export const Booking = () => {
                       <dt className="w-28 text-muted">Date</dt>
                       <dd className="flex-1 break-words text">
                         {formData.date
-                          ? formData.date.toString()
+                          ? getDate(formData.date)
                           : "To be confirmed"}
                       </dd>
                     </div>
