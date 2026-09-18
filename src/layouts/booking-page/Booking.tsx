@@ -7,6 +7,7 @@ import { Link, useParams } from "react-router-dom";
 import type { ContactMethod } from "../../models/ContactMethod";
 import type { FormData } from "../../models/FormData";
 import type { Errors } from "../../models/FormErrors";
+import { FormButton } from "./components/FormButton";
 import { useLanguage } from "../../i18n/useLanguages";
 import { bookingService } from "../../services/bookingservice";
 import { BackButton } from "./components/BackButton";
@@ -411,22 +412,19 @@ export const Booking = () => {
                       className="accent-red-800 w-4 h-4"
                     />
                   </div>
-                  <span>
-                    Я подтверждаю, что указанная информация верна, и соглашаюсь
-                    на связь для обсуждения записи на тату.
-                  </span>
+                  <span>{t.booking.agreement}</span>
                 </div>
                 <div className="flex justify-between">
                   <BackButton
                     label={t.booking.back}
                     onClick={() => setCurrentStep(currentStep - 1)}
                   />
-                  <div className="bg-black">
+                  <div className="relative bg-black">
                     <button
                       type="button"
                       className={`mt-8 h-10 rounded-lg ${
                         disabled
-                          ? "bg-red-800/0 text-muted"
+                          ? "bg-red-800/40 "
                           : "bg-red-800 hover:bg-red-600"
                       }`}
                       onClick={() => handleSubmit()}
