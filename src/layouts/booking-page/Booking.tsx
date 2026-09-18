@@ -422,7 +422,7 @@ export const Booking = () => {
                   <div className="relative bg-black">
                     <button
                       type="button"
-                      className={`mt-8 py-1 md:py-3 px-3 rounded-lg flex mx-8 gap-3 justify-center text-wrap items-center ${
+                      className={`mt-8 py-1 md:py-3 px-3 rounded-lg flex mx-8 md:gap-3 justify-center text-wrap items-center ${
                         disabled
                           ? "text-muted bg-red-800/40 "
                           : "bg-red-800 hover:bg-red-600"
@@ -431,7 +431,7 @@ export const Booking = () => {
                       disabled={disabled}
                     >
                       {/* <div className=""> */}
-                      <span className=" font-bold text-lg">
+                      <span className="font-bold text-lg/5">
                         {t.booking.confirm}
                       </span>{" "}
                       <GoDown className="mt-1 rotate-270 w-4 h-4" />
