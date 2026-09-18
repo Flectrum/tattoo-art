@@ -409,7 +409,7 @@ export const Booking = () => {
                     <input
                       type="checkbox"
                       onChange={() => setDisabled(!disabled)}
-                      className="accent-red-800 w-4 h-4"
+                      className="accent-red-800 w-4 h-4 mt-2"
                     />
                   </div>
                   <span>{t.booking.agreement}</span>
@@ -422,20 +422,18 @@ export const Booking = () => {
                   <div className="relative bg-black">
                     <button
                       type="button"
-                      className={`mt-8 h-10 rounded-lg ${
+                      className={`mt-8 py-1 md:py-3 px-3 rounded-lg flex mx-8 gap-3 justify-center text-wrap items-center ${
                         disabled
-                          ? "bg-red-800/40 "
+                          ? "text-muted bg-red-800/40 "
                           : "bg-red-800 hover:bg-red-600"
                       }`}
                       onClick={() => handleSubmit()}
                       disabled={disabled}
                     >
-                      <div className="flex mx-8 gap-3 justify-center items-center">
-                        <span className=" font-bold text-xl">
-                          {t.booking.confirm}
-                        </span>{" "}
-                        <GoDown className="mt-1 rotate-270 w-4 h-4" />
-                      </div>
+                      <span className=" font-bold text-lg">
+                        {t.booking.confirm}
+                      </span>{" "}
+                      <GoDown className="mt-1 rotate-270 w-4 h-4" />
                     </button>
                   </div>
                 </div>
