@@ -7,7 +7,6 @@ import { Link, useParams } from "react-router-dom";
 import type { ContactMethod } from "../../models/ContactMethod";
 import type { FormData } from "../../models/FormData";
 import type { Errors } from "../../models/FormErrors";
-import { FormButton } from "./components/FormButton";
 import { useLanguage } from "../../i18n/useLanguages";
 import { bookingService } from "../../services/bookingservice";
 import { BackButton } from "./components/BackButton";
@@ -425,11 +424,11 @@ export const Booking = () => {
                   <div className="bg-black">
                     <button
                       type="button"
-                      className={
+                      className={`mt-8 h-10 rounded-lg ${
                         disabled
-                          ? "mt-8 h-10  bg-red-800/40 rounded-lg text-muted"
-                          : "mt-8 h-10  bg-red-800 rounded-lg  hover:bg-red-600"
-                      }
+                          ? "bg-red-800/0 text-muted"
+                          : "bg-red-800 hover:bg-red-600"
+                      }`}
                       onClick={() => handleSubmit()}
                       disabled={disabled}
                     >
