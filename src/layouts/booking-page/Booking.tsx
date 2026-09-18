@@ -430,10 +430,12 @@ export const Booking = () => {
                       onClick={() => handleSubmit()}
                       disabled={disabled}
                     >
+                      {/* <div className=""> */}
                       <span className=" font-bold text-lg">
                         {t.booking.confirm}
                       </span>{" "}
                       <GoDown className="mt-1 rotate-270 w-4 h-4" />
+                      {/* </div> */}
                     </button>
                   </div>
                 </div>
