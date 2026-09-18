@@ -12,6 +12,7 @@ import { useLanguage } from "../../i18n/useLanguages";
 import { bookingService } from "../../services/bookingservice";
 import { BackButton } from "./components/BackButton";
 import { Ok } from "../../assets/svg/Ok";
+import { GoDown } from "../../assets/svg/GoDown";
 
 const contactMethods: ContactMethod[] = [
   {
@@ -60,8 +61,7 @@ export const Booking = () => {
   ];
 
   const steps = [1, 2, 3];
-
-  const todayDate = new Date().toISOString().split("T")[0];
+  const [disabled, setDisabled] = useState(true);
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -72,6 +72,8 @@ export const Booking = () => {
   });
 
   const [formErrors, setFormErrors] = useState<Errors>({});
+
+  const todayDate = new Date().toISOString().split("T")[0];
 
   function getDate(date: Date) {
     const splitDate = date.toString().split("-");
@@ -110,14 +112,17 @@ export const Booking = () => {
     }));
   };
 
-  function validatePhoneNumber(phoneNumber: string) {
-    if (
-      phoneNumber.split("")[0] !== "+" &&
-      isNaN(Number(phoneNumber.split("")[0]))
-    ) {
+  function catchInvalidPhoneNumber(phoneNumber: string) {
+    const phoneNumberDigits = phoneNumber.trim().split("");
+    if (phoneNumberDigits[0] !== "+" && isNaN(Number(phoneNumberDigits[0]))) {
       return true;
     } else if (phoneNumber.length < 6) {
       return true;
+    }
+    for (let num = 1; num < phoneNumberDigits.length; num++) {
+      if (isNaN(Number(phoneNumberDigits[num]))) {
+        return true;
+      }
     }
   }
 
@@ -129,8 +134,8 @@ export const Booking = () => {
     }
     if (!formData.phoneNumber.trim()) {
       errors.phoneNumber = t.booking.emptyFieldErr;
-    } else if (validatePhoneNumber(formData.phoneNumber)) {
-      errors.phoneNumber = "Invalid format";
+    } else if (catchInvalidPhoneNumber(formData.phoneNumber)) {
+      errors.phoneNumber = t.booking.incorrectNumberErr;
     }
     if (!formData.contactMethod) {
       errors.contactMethod = t.booking.emptyFieldErr;
@@ -144,7 +149,7 @@ export const Booking = () => {
       if (!formData.idea.trim()) {
         errors.idea = t.booking.emptyFieldErr;
       } else if (formData.idea.length < 10) {
-        errors.idea = "Description must be at least 10 characters";
+        errors.idea = t.booking.descriptionErr;
       }
     }
 
@@ -188,7 +193,7 @@ export const Booking = () => {
               </div>
             ))}
             <span className="text-sm text-muted">
-              Step {currentStep} of {steps.length}
+              {t.booking.step} {currentStep} {t.booking.of} {steps.length}
             </span>
           </div>
           <div className="translate-y-0 opacity-100 transition-all duration-400 starting:translate-x-8 starting:opacity-0">
@@ -231,7 +236,7 @@ export const Booking = () => {
                 )}
                 <label className="mt-2">
                   {t.booking.whereDiscuss}
-                  <span className="text-red-800">*</span>
+                  <span className="text-red-800"> *</span>
                 </label>
                 <ul className="flex flex-wrap gap-3 mt-3">
                   {contactMethods.map((item, index) => (
@@ -261,7 +266,7 @@ export const Booking = () => {
                   <>
                     <label className="mt-2">
                       {formData.contactMethod?.label}{" "}
-                      <span className="text-red-800">*</span>
+                      <span className="text-red-800"> *</span>
                     </label>
                     <input
                       className="relative bg-[#141414] mt-2 w-full min-w-0 rounded-lg px-2 md:px-5 py-2 border border-gray-600/80 outline-none hover:border-red-800"
@@ -399,12 +404,41 @@ export const Booking = () => {
                     </div>
                   </dl>
                 </div>
+                <div className="flex border bg-[#141414] border-[#2a2a2a] rounded-lg mt-5 p-3">
+                  <div className="w-20">
+                    <input
+                      type="checkbox"
+                      onChange={() => setDisabled(!disabled)}
+                      className="accent-red-800 w-4 h-4"
+                    />
+                  </div>
+                  <span>
+                    Я подтверждаю, что указанная информация верна, и соглашаюсь
+                    на связь для обсуждения записи на тату.
+                  </span>
+                </div>
                 <div className="flex justify-between">
                   <BackButton
                     label={t.booking.back}
                     onClick={() => setCurrentStep(currentStep - 1)}
                   />
-                  <FormButton label="Confirm" onClick={() => handleSubmit()} />
+                  <button
+                    type="button"
+                    className={
+                      disabled
+                        ? "mt-8 h-10  bg-gray-800 rounded-lg"
+                        : "mt-8 h-10  bg-red-800 rounded-lg hover:bg-red-600"
+                    }
+                    onClick={() => handleSubmit()}
+                    disabled={disabled}
+                  >
+                    <div className="flex mx-8 gap-3 justify-center items-center">
+                      <span className=" font-bold text-xl">
+                        {t.booking.confirm}
+                      </span>{" "}
+                      <GoDown className="mt-1 rotate-270 w-4 h-4" />
+                    </div>
+                  </button>
                 </div>
               </div>
             )}

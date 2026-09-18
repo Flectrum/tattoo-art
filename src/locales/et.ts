@@ -57,6 +57,12 @@ booking:{
     optional:"Valikuline — täpsustame hiljem",
     back:"Tagasi",
     chooseYourStyle:"Vali stiil (valikuline)",
+    confirm:"Saada päring",
+    agreement:"Kinnitan, et ülaltoodud andmed on õiged, ja nõustun ühenduse võtmisega tätoveerimisbroneeringu arutamiseks.",
+    incorrectNumberErr:"Sisesta kehtiv telefoninumber",
+    descriptionErr:"Kirjeldus peab olema vähemalt 10 tähemärki",
+    step:"Samm",
+    of:"/",
     styles:{
         1:"Blackwork",
         2:"Geomeetriline",

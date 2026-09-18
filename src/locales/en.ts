@@ -56,6 +56,12 @@ booking:{
     optional:"Optional — we'll confirm later",
     back:"Back",
     chooseYourStyle:"Choose a style (optional)",
+    confirm:"Send Request",
+    agreement:"I confirm that the information above is correct and agree to be contacted to discuss my tattoo booking.",
+    incorrectNumberErr:"Enter a valid phone number",
+    descriptionErr:"Description must be at least 10 characters",
+    step:"Step",
+    of:"of",
     styles:{
         1:"Blackwork",
         2:"Geometric",

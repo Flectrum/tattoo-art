@@ -57,6 +57,12 @@ booking:{
     optional:"Opcional — lo confirmaremos después",
     back:"Atrás",
     chooseYourStyle:"Elige un estilo (opcional)",
+    confirm:"Enviar Solicitud",
+    agreement:"Confirmo que la información anterior es correcta y acepto ser contactado para hablar sobre mi reserva de tatuaje.",
+    incorrectNumberErr:"Introduce un número de teléfono válido",
+    descriptionErr:"La descripción debe tener al menos 10 caracteres",
+    step:"Paso",
+    of:"de",
     styles:{
         1:"Blackwork",
         2:"Geométrico",

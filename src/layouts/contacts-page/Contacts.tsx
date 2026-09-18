@@ -65,10 +65,10 @@ export const Contacts = () => {
                 className="absolute inset-0 h-full w-full rounded-lg"
               ></iframe>
             </div>
-            <div className="flex flex-wrap lg:justify-between mt-2">
+            <div className="flex flex-wrap justify-between mt-2">
               <div className="flex inline-flex">
                 <GoogleMapTag className="w-4 fill-red-800 " />
-                <span className="text-muted">
+                <span className="text-muted ">
                   {" "}
                   A. Lauteri tn 5, 10114 Tallinn
                 </span>
@@ -77,7 +77,7 @@ export const Contacts = () => {
                 href="https://www.google.com/maps/place/?q=place_id:ChIJW0sQoGUlpkIRwHRt6ZUAa_c"
                 className="text-red-600"
               >
-                <span className="hover:underline">
+                <span className="hover:underline text-sm">
                   {t.contacts.openInGoogleMaps}
                 </span>
               </a>
