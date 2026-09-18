@@ -422,23 +422,25 @@ export const Booking = () => {
                     label={t.booking.back}
                     onClick={() => setCurrentStep(currentStep - 1)}
                   />
-                  <button
-                    type="button"
-                    className={
-                      disabled
-                        ? "mt-8 h-10  bg-gray-800 rounded-lg"
-                        : "mt-8 h-10  bg-red-800 rounded-lg hover:bg-red-600"
-                    }
-                    onClick={() => handleSubmit()}
-                    disabled={disabled}
-                  >
-                    <div className="flex mx-8 gap-3 justify-center items-center">
-                      <span className=" font-bold text-xl">
-                        {t.booking.confirm}
-                      </span>{" "}
-                      <GoDown className="mt-1 rotate-270 w-4 h-4" />
-                    </div>
-                  </button>
+                  <div className="bg-black">
+                    <button
+                      type="button"
+                      className={
+                        disabled
+                          ? "mt-8 h-10  bg-red-800/40 rounded-lg text-muted"
+                          : "mt-8 h-10  bg-red-800 rounded-lg  hover:bg-red-600"
+                      }
+                      onClick={() => handleSubmit()}
+                      disabled={disabled}
+                    >
+                      <div className="flex mx-8 gap-3 justify-center items-center">
+                        <span className=" font-bold text-xl">
+                          {t.booking.confirm}
+                        </span>{" "}
+                        <GoDown className="mt-1 rotate-270 w-4 h-4" />
+                      </div>
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
