@@ -23,7 +23,6 @@ export const About = () => {
             <div className="relative aspect-[3/4] w-full max-w-sm overflow-hidden rounded-lg bg-surface-2 mx-auto lg:mx-0">
               <img src={artist} alt="Beka Gokadze" className="rounded"></img>
             </div>
-            {/* </div> */}
             <div className="space-y-6 ">
               <p className="text-red-800 text-bold uppercase">
                 {t.about.about}
