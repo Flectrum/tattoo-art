@@ -9,6 +9,7 @@ import { pictures } from "./layouts/portfolio-page/Pictures";
 import { Booking } from "./layouts/booking-page/Booking";
 import { Contacts } from "./layouts/contacts-page/Contacts";
 import { getUserLanguage } from "./common/Languages";
+import { Admin } from "./layouts/admin-page/Admin";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="booking" element={<Booking />} />
           <Route path="contacts" element={<Contacts />} />
+          <Route path="admin" element={<Admin />} />
         </Route>
       </Routes>
     </>

@@ -4,6 +4,7 @@ import { Instagram } from "../../assets/svg/Instagram";
 import { Telegram } from "../../assets/svg/Telegram";
 import { getNavItems } from "./components/NavItems";
 import { useLanguage } from "../../i18n/useLanguages";
+import { Admin } from "../admin-page/Admin";
 
 export const Footer = () => {
   const year = new Date().getFullYear();
@@ -32,7 +33,8 @@ export const Footer = () => {
             </a>
           </div>
           <div className="mt-2 whitespace-nowrap text-sm">
-            © {year} {t.footer.allRightsReserved}
+            © {year}
+            <Link to="admin"> {t.footer.allRightsReserved} </Link>
           </div>
         </div>
         <div className="mt-3 ">
