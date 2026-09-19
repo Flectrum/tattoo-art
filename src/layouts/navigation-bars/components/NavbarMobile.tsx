@@ -3,7 +3,6 @@ import { Dropdown } from "./Dropdown";
 import { useClickOutside } from "../../../common/useClickOutside";
 import { NavLink, useParams } from "react-router-dom";
 import type { NavItem } from "./NavItems";
-import { Key } from "../../../assets/svg/Key";
 
 export const NavbarMobile = (props: { navItems: NavItem[] }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
