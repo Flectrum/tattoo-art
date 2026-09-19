@@ -17,9 +17,6 @@ export const About = () => {
   ];
   return (
     <>
-      {/* <div className="relative px-5 md:px-0 container md:mx-auto lg:px-20">
-        <div className="relative lg:flex md:justify-between my-20 ">
-          <div className="w-full aspect-[3/4] lg:mr-50 object-contain"> */}
       <section className="section-padding py-16 px-10 lg:px-40">
         <div className="section-max-w">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
@@ -73,8 +70,6 @@ export const About = () => {
           </div>
         </div>
       </section>
-      {/* </div>
-      </div> */}
     </>
   );
 };

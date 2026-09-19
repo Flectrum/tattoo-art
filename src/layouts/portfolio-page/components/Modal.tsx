@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect } from "react";
 import { GoDown } from "../../../assets/svg/GoDown";
 import type { Picture } from "./../Pictures";
 
@@ -18,26 +18,6 @@ export default function Modal({
   pictures,
   index,
 }: ModalProps) {
-  const touchStartX = useRef(0);
-  const minSwipeDistance: number = 50;
-
-  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
-    const touchEndX: number = e.changedTouches[0].clientX;
-    const distanceX: number = touchStartX.current - touchEndX;
-
-    if (distanceX > minSwipeDistance) {
-      showNext();
-    }
-
-    if (distanceX < -minSwipeDistance) {
-      showPrev();
-    }
-  };
-
   const showNext = useCallback(() => {
     setIndex((prev) =>
       prev === null || prev === pictures.length - 1 ? 0 : prev + 1,
@@ -76,8 +56,6 @@ export default function Modal({
       <div
         className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
         onClick={onClose}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
       />
 
       <button
