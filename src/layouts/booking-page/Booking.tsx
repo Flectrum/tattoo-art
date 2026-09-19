@@ -66,32 +66,47 @@ export const Booking = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     phoneNumber: "",
-    contactMethod: null,
+    contactMethod: {
+      name: "",
+      svg: undefined,
+      label: "",
+      placeholder: "",
+      contact: "",
+    },
     contact: "",
     idea: "",
+    style: "",
+    date: "",
   });
 
   const [formErrors, setFormErrors] = useState<Errors>({});
 
   const todayDate = new Date().toISOString().split("T")[0];
 
-  function getDate(date: Date) {
-    const splitDate = date.toString().split("-");
+  function getDate(date: string) {
+    const splitDate = date.split("-");
     return splitDate[2] + "." + splitDate[1] + "." + splitDate[0];
   }
 
   const handleSubmit = async () => {
+    console.log(formData.date);
     await bookingService.sendFormData({
       name: formData.name,
       phoneNumber: formData.phoneNumber,
+      contactMethod: formData.contactMethod.name,
+      contact: formData.contact,
+      idea: formData.idea,
+      style: formData.style,
+      date: formData.date,
     });
   };
 
+  const handleDate = (e: ChangeEvent<HTMLSelectElement>) => {
+    getDate(e.target.value);
+  };
+
   const handleChange = (
-    e:
-      | ChangeEvent<HTMLInputElement>
-      | ChangeEvent<HTMLTextAreaElement>
-      | ChangeEvent<HTMLSelectElement>,
+    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
 
@@ -262,7 +277,7 @@ export const Booking = () => {
                     {formErrors.contactMethod}
                   </p>
                 )}
-                {formData.contactMethod && (
+                {formData.contactMethod.name !== "" && (
                   <>
                     <label className="mt-2">
                       {formData.contactMethod?.label}{" "}
@@ -314,7 +329,7 @@ export const Booking = () => {
                   defaultValue={"default"}
                   className="relative bg-[#141414] text-white border outline-none border-1 focus:border-red-800 border-gray-600 rounded-lg px-3 py-2"
                   name="style"
-                  onChange={handleChange}
+                  onChange={handleDate}
                 >
                   <option
                     value={"default"}
@@ -397,9 +412,7 @@ export const Booking = () => {
                     <div className="flex gap-4 px-4 py-3">
                       <dt className="w-28 text-muted">Date</dt>
                       <dd className="flex-1 break-words text">
-                        {formData.date
-                          ? getDate(formData.date)
-                          : "To be confirmed"}
+                        {formData.date ? formData.date : "To be confirmed"}
                       </dd>
                     </div>
                   </dl>
@@ -409,6 +422,7 @@ export const Booking = () => {
                     <input
                       type="checkbox"
                       onChange={() => setDisabled(!disabled)}
+                      checked={disabled ? false : true}
                       className="accent-red-800 w-4 h-4 mt-2"
                     />
                   </div>
@@ -430,12 +444,10 @@ export const Booking = () => {
                       onClick={() => handleSubmit()}
                       disabled={disabled}
                     >
-                      {/* <div className=""> */}
                       <span className="font-bold text-lg/5">
                         {t.booking.confirm}
                       </span>{" "}
                       <GoDown className="mt-1 rotate-270 w-4 h-4" />
-                      {/* </div> */}
                     </button>
                   </div>
                 </div>
