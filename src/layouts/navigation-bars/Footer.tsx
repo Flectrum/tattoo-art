@@ -4,7 +4,6 @@ import { Instagram } from "../../assets/svg/Instagram";
 import { Telegram } from "../../assets/svg/Telegram";
 import { getNavItems } from "./components/NavItems";
 import { useLanguage } from "../../i18n/useLanguages";
-import { Admin } from "../admin-page/Admin";
 
 export const Footer = () => {
   const year = new Date().getFullYear();
