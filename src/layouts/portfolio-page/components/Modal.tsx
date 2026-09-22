@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
 import { GoDown } from "../../../assets/svg/GoDown";
-import type { Picture } from "./../Pictures";
+import type { Image } from "./../Image";
 
 interface ModalProps {
   isOpen: boolean;
@@ -8,7 +8,8 @@ interface ModalProps {
   title?: string;
   index: number;
   setIndex: React.Dispatch<React.SetStateAction<number | null>>;
-  pictures: Picture[];
+  isLoaded: boolean;
+  pictures: Image[];
 }
 
 export default function Modal({
@@ -17,7 +18,10 @@ export default function Modal({
   setIndex,
   pictures,
   index,
+  isLoaded,
 }: ModalProps) {
+  const BASE_URL = "http://localhost:8080/api/image/file/";
+
   const showNext = useCallback(() => {
     setIndex((prev) =>
       prev === null || prev === pictures.length - 1 ? 0 : prev + 1,
@@ -69,7 +73,14 @@ export default function Modal({
         className="relative max-w-3xl max-h-full transform overflow-hidden
        rounded-2xl align-middle shadow-xl transition-all duration-300 scale-100"
       >
-        <img className="max-h-[85vh] w-auto" src={pictures[index].path} />{" "}
+        <img
+          className="max-h-[85vh] w-auto"
+          src={
+            isLoaded
+              ? `${BASE_URL}${pictures[index].path}`
+              : pictures[index].path
+          }
+        />{" "}
       </div>
       <button
         className="absolute rounded-full p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-800 transition-colors right-0 rotate-270"

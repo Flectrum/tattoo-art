@@ -17,7 +17,7 @@ export const Navbar = () => {
             className="font-semibold text-nowrap uppercase tracking-widest"
             to="/"
           >
-            <div className="flex items-center justify-between  transition-colors text-white hover:text-red-800 pl-5">
+            <div className="flex items-center justify-between gap-2  transition-colors text-white hover:text-red-800 pl-5">
               <Logo className="w-10 h-10" />
               Tattoo Art
             </div>
