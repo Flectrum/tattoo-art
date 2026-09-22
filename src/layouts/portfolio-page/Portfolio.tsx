@@ -18,7 +18,7 @@ export const Portfolio = () => {
   const BASE_URL = "http://localhost:8080/api/image/file/";
   const [open, setOpen] = useState(false);
   const [currentIndex, setCurrrentIndex] = useState<number | null>(null);
-  const [images, setImages] = useState<Image[]>([]);
+  const [images, setImages] = useState<Image[]>(staticImages);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -54,7 +54,7 @@ export const Portfolio = () => {
         <p className="text-muted">{t.portfolio.p}</p>
       </div>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
-        {images?.map((image, index) => (
+        {images.map((image, index) => (
           <div
             key={image.id}
             onClick={() => {
@@ -75,7 +75,7 @@ export const Portfolio = () => {
             isOpen={open}
             isLoaded={isLoaded}
             onClose={() => setOpen(false)}
-            images={images}
+            images={isLoaded ? images : staticImages}
             setIndex={setCurrrentIndex}
             index={currentIndex !== null ? currentIndex : 0}
           ></Modal>
