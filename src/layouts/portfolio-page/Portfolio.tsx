@@ -18,7 +18,7 @@ export const Portfolio = () => {
   const BASE_URL = "http://localhost:8080/api/image/file/";
   const [open, setOpen] = useState(false);
   const [currentIndex, setCurrrentIndex] = useState<number | null>(null);
-  const [images, setImages] = useState<Image[]>();
+  const [images, setImages] = useState<Image[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -29,8 +29,8 @@ export const Portfolio = () => {
       };
       const imagesResponse = await fetch(url, requestOptions);
       if (!imagesResponse.ok) {
-        throw new Error("Something went wrong!");
         setImages(staticImages);
+        throw new Error("Something went wrong!");
       }
 
       const imagesResponseJson = await imagesResponse.json();
