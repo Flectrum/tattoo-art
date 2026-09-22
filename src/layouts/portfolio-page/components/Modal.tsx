@@ -9,14 +9,14 @@ interface ModalProps {
   index: number;
   setIndex: React.Dispatch<React.SetStateAction<number | null>>;
   isLoaded: boolean;
-  pictures: Image[];
+  images: Image[];
 }
 
 export default function Modal({
   isOpen,
   onClose,
   setIndex,
-  pictures,
+  images: images,
   index,
   isLoaded,
 }: ModalProps) {
@@ -24,15 +24,15 @@ export default function Modal({
 
   const showNext = useCallback(() => {
     setIndex((prev) =>
-      prev === null || prev === pictures.length - 1 ? 0 : prev + 1,
+      prev === null || prev === images.length - 1 ? 0 : prev + 1,
     );
-  }, [pictures.length, setIndex]);
+  }, [images.length, setIndex]);
 
   const showPrev = useCallback(() => {
     setIndex((prev) =>
-      prev === null || prev === 0 ? pictures.length - 1 : prev - 1,
+      prev === null || prev === 0 ? images.length - 1 : prev - 1,
     );
-  }, [pictures.length, setIndex]);
+  }, [images.length, setIndex]);
 
   useEffect(() => {
     if (isOpen) {
@@ -76,9 +76,7 @@ export default function Modal({
         <img
           className="max-h-[85vh] w-auto"
           src={
-            isLoaded
-              ? `${BASE_URL}${pictures[index].path}`
-              : pictures[index].path
+            isLoaded ? `${BASE_URL}${images[index].path}` : images[index].path
           }
         />{" "}
       </div>
