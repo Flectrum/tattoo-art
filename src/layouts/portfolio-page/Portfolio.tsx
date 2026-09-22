@@ -15,15 +15,15 @@ const staticImages = [
 ];
 
 export const Portfolio = () => {
-  const BASE_URL = "http://localhost:8080/api/image/file/";
+  const BASE_URL = "http://localhost:8080/api";
   const [open, setOpen] = useState(false);
   const [currentIndex, setCurrrentIndex] = useState<number | null>(null);
-  const [images, setImages] = useState<Image[]>(staticImages);
+  const [images, setImages] = useState<Image[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const fetchUserCurrentLoans = async () => {
-      const url = `http://localhost:8080/api/image/getAll`;
+      const url = `${BASE_URL}/image/getAll`;
       const requestOptions = {
         method: "GET",
       };
@@ -63,7 +63,11 @@ export const Portfolio = () => {
             className="flex items-center justify-center group relative aspect-square overflow-hidden rounded focus-visible:outline-none object-center"
           >
             <img
-              src={isLoaded ? `${BASE_URL}${image.path}` : images[index].path}
+              src={
+                isLoaded
+                  ? `${BASE_URL}/image/file/${image.path}`
+                  : images[index].path
+              }
               alt="tattoo"
             ></img>
 

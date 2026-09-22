@@ -20,7 +20,7 @@ export default function Modal({
   index,
   isLoaded,
 }: ModalProps) {
-  const BASE_URL = "http://localhost:8080/api/image/file/";
+  const BASE_URL = "http://localhost:8080/api";
 
   const showNext = useCallback(() => {
     setIndex((prev) =>
@@ -76,7 +76,9 @@ export default function Modal({
         <img
           className="max-h-[85vh] w-auto"
           src={
-            isLoaded ? `${BASE_URL}${images[index].path}` : images[index].path
+            isLoaded
+              ? `${BASE_URL}/image/file/${images[index].path}`
+              : images[index].path
           }
         />{" "}
       </div>

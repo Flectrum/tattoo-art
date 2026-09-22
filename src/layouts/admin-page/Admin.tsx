@@ -6,6 +6,7 @@ interface Image {
 }
 
 export const Admin = () => {
+  const BASE_URL = "http://localhost:8080/api";
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [images, setImages] = useState<Image[]>([]);
 
@@ -13,8 +14,7 @@ export const Admin = () => {
     const formData = new FormData();
     if (selectedImage !== null) {
       formData.append("image", selectedImage);
-      console.log("image is not null!");
-      const url = `http://localhost:8080/api/image`;
+      const url = `${BASE_URL}/image`;
 
       const requestOptions = {
         method: "POST",
@@ -26,19 +26,13 @@ export const Admin = () => {
       if (!response.ok) {
         console.log("Something wrong");
         throw new Error("Something went wrong");
-      } else {
-        console.log("Image sended!");
       }
-    } else {
-      console.log("Selected image is null");
     }
   }
 
-  // TEST !!!!
-
   useEffect(() => {
     const fetchUserCurrentLoans = async () => {
-      const url = `http://localhost:8080/api/image/getAll`;
+      const url = `${BASE_URL}/image/getAll`;
       const requestOptions = {
         method: "GET",
       };
@@ -60,12 +54,10 @@ export const Admin = () => {
           <input
             className="text-red-800"
             type="file"
-            placeholder="Choose your file..."
             accept="image/jpeg, image/webp, image/png"
             onChange={(e) => {
               if (e.target.files && e.target.files.length > 0) {
                 setSelectedImage(e.target.files[0]);
-                console.log("Image selected" + e.target.files[0].name);
               }
             }}
           />
@@ -73,7 +65,7 @@ export const Admin = () => {
             <img
               src={URL.createObjectURL(selectedImage)}
               alt="preview"
-              style={{ maxWidth: "200px" }}
+              className=" flex flex-wrap w-60 h-60"
             />
           )}
         </div>
@@ -84,10 +76,10 @@ export const Admin = () => {
           <span className="m-3">Upload</span>
         </button>
       </form>
-      <div className="relative flex gap-3">
+      <div className="relative flex flex-wrap h-50 gap-3">
         {images.map((image) => (
           <div key={image.id} className="w-50">
-            <img src={`http://localhost:8080/api/image/file/${image.path}`} />
+            <img src={`${BASE_URL}/image/file/${image.path}`} />
           </div>
         ))}
       </div>
