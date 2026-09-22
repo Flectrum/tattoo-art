@@ -371,48 +371,52 @@ export const Booking = () => {
             {currentStep === 3 && (
               <div className="flex flex-col mt-10">
                 <h2 className="flex  font-bold text-2xl">
-                  Review Your Request
+                  {t.booking.reviewYourRequest}
                 </h2>
                 <div className="relative border bg-[#141414] border-[#2a2a2a] rounded-lg mt-5">
                   <p className="border-b border-[#2a2a2a] px-4 py-3 font-medium uppercase tracking-wider text-muted">
                     {" "}
-                    Your request
+                    {t.booking.yourRequest}
                   </p>
                   <dl className="divide-y divide-[#2a2a2a] ">
                     <div className="flex gap-4 px-4 py-3">
-                      <dt className="w-28 text-muted">Name</dt>
+                      <dt className="w-28 text-muted">{t.booking.name}</dt>
                       <dd className="flex-1 break-words text">
                         {formData.name}
                       </dd>
                     </div>
                     <div className="flex gap-4 px-4 py-3">
-                      <dt className="w-28 text-muted">Phone</dt>
+                      <dt className="w-28 text-muted">{t.booking.phone}</dt>
                       <dd className="flex-1 break-words text">
                         {formData.phoneNumber}
                       </dd>
                     </div>
                     <div className="flex gap-4 px-4 py-3">
-                      <dt className="w-28 text-muted">Discuss via</dt>
+                      <dt className="w-28 text-muted">
+                        {t.booking.discussVia}
+                      </dt>
                       <dd className="flex-1 break-words text">
                         {formData.contactMethod?.name} — {formData.contact}
                       </dd>
                     </div>
                     <div className="flex gap-4 px-4 py-3">
-                      <dt className="w-28 text-muted">Idea</dt>
+                      <dt className="w-28 text-muted">{t.booking.idea}</dt>
                       <dd className="flex-1 break-words text">
                         {formData.idea}
                       </dd>
                     </div>
                     <div className="flex gap-4 px-4 py-3">
-                      <dt className="w-28 text-muted">Style</dt>
+                      <dt className="w-28 text-muted">{t.booking.style}</dt>
                       <dd className="flex-1 break-words text">
                         {formData.style ? formData.style : "To be confirmed"}
                       </dd>
                     </div>
                     <div className="flex gap-4 px-4 py-3">
-                      <dt className="w-28 text-muted">Date</dt>
+                      <dt className="w-28 text-muted">{t.booking.date}</dt>
                       <dd className="flex-1 break-words text">
-                        {formData.date ? formData.date : "To be confirmed"}
+                        {formData.date
+                          ? formData.date
+                          : t.booking.toBeConfirmed}
                       </dd>
                     </div>
                   </dl>
