@@ -31,6 +31,8 @@ export const Portfolio = () => {
       if (!imagesResponse.ok) {
         setImages(staticImages);
         throw new Error("Something went wrong!");
+      } else {
+        console.log("images must be received from the server");
       }
 
       const imagesResponseJson = await imagesResponse.json();
