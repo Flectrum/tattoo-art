@@ -18,7 +18,7 @@ export const Portfolio = () => {
   const BASE_URL = "http://localhost:8080/api";
   const [open, setOpen] = useState(false);
   const [currentIndex, setCurrrentIndex] = useState<number | null>(null);
-  const [images, setImages] = useState<Image[]>([]);
+  const [images, setImages] = useState<Image[]>(staticImages);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -37,6 +37,7 @@ export const Portfolio = () => {
       setImages(imagesResponseJson);
       setIsLoaded(true);
     };
+
     fetchUserCurrentLoans();
   }, []);
 
