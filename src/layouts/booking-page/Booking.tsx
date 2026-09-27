@@ -453,7 +453,7 @@ export const Booking = () => {
                           className={`mt-8 py-1 md:py-3 px-3 rounded-lg flex mx-8 md:gap-3 justify-center text-wrap items-center ${
                             disabled
                               ? "text-muted bg-red-800/40 "
-                              : "bg-red-800 hover:bg-red-600"
+                              : "bg-[var(--color-red)] hover:bg-[var(--color-red-hover)]"
                           }`}
                           onClick={() => handleSubmit()}
                           disabled={disabled}
@@ -476,13 +476,24 @@ export const Booking = () => {
         )}
 
         {currentStep === 4 && (
-          <div className="flex flex-col items-center justify-center">
-            <Ok className="w-10 h-10 text-red-800" />
-            <p className="mt-5 text-white text-3xl font-bold">
-              {t.booking.requestSent}
-            </p>
-            <p className="text-muted mt-3">{t.booking.thankYouText}</p>
-            <p className="mt-3">{t.booking.reachOutDirectly}</p>
+          <div className="w-80">
+            <div className="flex flex-col items-center text-center justify-center">
+              <Ok className="w-10 h-10 text-[var(--color-red)]" />
+              <p className="mt-5 text-white text-3xl font-bold">
+                {t.booking.requestSent}
+              </p>
+              <p className="text-muted mt-3">{t.booking.thankYouText}</p>
+              <p className="mt-3">{t.booking.reachOutDirectly}</p>
+
+              <Link
+                to={`/${lang}/`}
+                className="mt-10 h-10  rounded-lg  hover:bg-[#2a2a2a]"
+              >
+                <div className="flex mx-6  gap-3 items-center justify-center">
+                  <span className="mt-1 text-md">{t.booking.backToHome} </span>
+                </div>
+              </Link>
+            </div>
           </div>
         )}
       </div>

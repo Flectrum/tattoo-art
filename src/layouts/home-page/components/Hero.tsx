@@ -6,10 +6,10 @@ export const Hero = () => {
   return (
     <>
       <div className="block relative max-w-xl mx-auto space-y-6 align-center justify-center text-white tracking-wide">
-        <p className="text-sm font-semibold uppercase tracking-[0.25em]  text-muted">
+        <p className="text-sm font-semibold  uppercase tracking-[0.25em]  text-muted">
           {t.hero.name}
         </p>
-        <h1 className="text-4xl  font-bold leading-tight tracking-wide text-balance sm:text-5xl lg:text-6xl mt-1">
+        <h1 className="text-4xl font-bold leading-tight tracking-tight text-balance sm:text-5xl">
           {t.hero.h1}
         </h1>
         <p className="mx-auto text-2xl text-semibold max-w-lg text-base text-muted text-balance sm:text-lg mt-5">
