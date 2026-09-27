@@ -14,7 +14,7 @@ export const Contacts = () => {
         <h1 className="text-white text-3xl font-bold">{t.contacts.h1}</h1>
         <p className="mt-2 text-muted">{t.contacts.contactMe}</p>
         <div className="mt-10 grid gap-12 lg:grid-cols-2">
-          <div className="space-y-6 text-white">
+          <div className="space-y-8 text-white">
             <a
               href="https://t.me/GoQa123"
               className="flex gap-3 border border-[#484747] w-full md:w-2/3 bg-[#141414] hover:bg-[#353434] rounded-md p-2"
