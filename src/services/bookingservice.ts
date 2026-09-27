@@ -11,10 +11,12 @@ export interface AddBooking {
     date?: string;
 }
 
+const BASE_URL = import.meta.env.VITE_API_URL;
+
 export const bookingService = {
 
     async sendFormData(formData: AddBooking){
-        const response = await fetch('http://localhost:8080/api/booking', { 
+        const response = await fetch(`${BASE_URL}/booking`, { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

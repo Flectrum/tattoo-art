@@ -6,7 +6,7 @@ interface Image {
 }
 
 export const Admin = () => {
-  const BASE_URL = "http://localhost:8080/api";
+  const BASE_URL = import.meta.env.VITE_API_URL;
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [images, setImages] = useState<Image[]>([]);
 

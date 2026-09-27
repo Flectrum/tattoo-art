@@ -1,5 +1,7 @@
 :root {
     background-color: black;
+    --color-red: #e11d48;
+    --color-red-hover: #be123c;
 }
 
 .text-muted {

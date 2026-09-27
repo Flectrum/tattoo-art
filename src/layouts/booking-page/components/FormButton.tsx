@@ -9,7 +9,7 @@ export const FormButton = ({ label, onClick }: ButtonProps) => {
   return (
     <button
       type="button"
-      className="mt-8 h-10  bg-red-500 rounded-lg hover:bg-red-600"
+      className="mt-8 h-10  bg-[var(--color-red)] rounded-lg hover:bg-[var(--color-red-hover)]"
       onClick={onClick}
     >
       <div className="flex mx-4 gap-3 justify-center items-center">

@@ -22,13 +22,13 @@ export const Footer = () => {
           </div>
           <div className="flex align-center justify-center gap-3 mt-2 md:ml-55">
             <a href="https://t.me/GoQa123">
-              <Telegram className="w-7 hover:fill-red-600 " />
+              <Telegram className="w-6 hover:text-[var(--color-red)]" />
             </a>
             <a href="https://www.instagram.com/beqa_tattoo_art?igsh=ZG1sbXBrem1ma3Vu">
-              <Instagram className="w-7 hover:fill-red-600 transition-colors" />
+              <Instagram className="w-6 hover:text-[var(--color-red)] transition-colors" />
             </a>
             <a href="mailto:goqadzebeqa@gmail.com">
-              <Email className="w-7 hover:text-red-600 transition-colors" />
+              <Email className="w-6 hover:text-[var(--color-red)] transition-colors" />
             </a>
           </div>
           <div className="mt-2 whitespace-nowrap text-sm">
