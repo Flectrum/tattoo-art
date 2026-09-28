@@ -55,7 +55,7 @@ export const Portfolio = () => {
         <p className="text-muted">{t.portfolio.p}</p>
       </div>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
-        {images.map((image, index) => (
+        {images.reverse().map((image, index) => (
           <div
             key={image.id}
             onClick={() => {
