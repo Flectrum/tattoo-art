@@ -246,7 +246,7 @@ export const Booking = () => {
                     </label>
                     <input
                       className="relative mt-2 w-full min-w-0 bg-[#141414] rounded-lg px-2 md:px-5 py-2 border border-gray-600/80 outline-none hover:border-red-800"
-                      type="text"
+                      type="tel"
                       name="phoneNumber"
                       onChange={handleChange}
                       value={formData.phoneNumber}
